@@ -1,2 +1,2 @@
-# KnowledgePoints
-零碎的知识点集合
+# doT.js的一些用法
+1.动态模板渲染引擎
