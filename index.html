@@ -4,58 +4,87 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 </head>
 <body>
-  <div id='interpolation'></div>
-  <div id='evaluation'></div>
-  <div id='arraytion'></div>
-  <div id="condition"></div>
-  <div id="encode"></div>
-  <div id="part"></div>
+  <div class="app"></div>
+  <div id="extend"></div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./doT.min.js"></script>
-<!--赋值-->
-<script id="interpolationtmpl" type="text/x-dot-template">
-  <div>Hi {{=it.name}}</div>
-  <div>Hi {{=it.age}}</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script type="text/template" class='demo'>
+  <div>
+    <el-form>
+      <el-form-item label='姓名:'>
+        {{name}}
+      </el-form-item>
+    </el-form>
+  </div>
 </script>
-<!--循环-->
-<script id="evaluationtmpl" type="text/x-dot-template">
-  {{ for(var prop in it) { }}
-    <div>KEY:{{=prop}};Value:{{=it[prop]}}</div>
-  {{}}}
+<script type="text/template" class='demo'>
+  <div>
+    <el-form>
+      <el-form-item label='姓名:'>
+        {{name}}
+      </el-form-item>
+    </el-form>
+  </div>
 </script>
-<!--数组-->
-<script id="arraytmpl" type="text/x-dot-template">
-  {{~it.array:value:index}}
-  <div>{{=index+1}}.{{=value}}</div>
-  {{~}}
+<script type="text/template" id='extend-template'>
+  <div>
+    <el-form>
+      <el-form-item label='年龄:'>
+        {{age}}
+      </el-form-item>
+    </el-form>
+  </div>
 </script>
-<!--条件-->
-<script id="conditionstmpl" type="text/x-dot-template">
-  {{?it.name}}
-  <div>name:{{=it.name}}</div>
-  {{?}}
-  {{?it.age}}
-  <div>age:{{=it.age}}</div>
-  {{?}}
+<script>
+  const vm = new Vue({
+    el:".app",
+    data:{
+      name:'qcx'
+    },
+    template:$(".demo").html()
+  })
+  //优先级
+  /*const Extend = Vue.extend({
+    template:$("#extend-template").html(),
+    data(){
+      return{
+        age:24
+      }
+    }
+  })
+  const Extend_2 = Vue.extend({
+    template:$("#extend-template").html(),
+    data(){
+      return{
+        age:25
+      }
+    }
+  })
+  const mixin = {
+    data(){
+      return{
+        age:23
+      }
+    }
+  }
+  const extend_vm = new Extend({
+    el:"#extend",
+    extends:Extend_2,
+    data(){
+      return{
+        age:26
+      }
+    },
+    mixins:[mixin]
+  })*/
+  //重新$mount
+  setTimeout(()=>{
+    vm.$mount("#extend")
+  },1000)
 </script>
-<!--编码-->
-<script id="encodetmpl" type="text/x-dot-template">
-  <div>Visit {{!it.uri}} {{!it.html}}</div>
-  <div>Visit {{=it.uri}} {{=it.html}}</div>
-</script>
-<!--动态模板-->
-<!--##-#添加def属性值-->
-<!--#使用def属性值-->
-<script id="parttmpl" type="text/x-dot-template">
-
-  {{##def.snippet:
-  <div>{{=it.name}}</div>{{#def.joke}}
-  #}}
-  {{#def.snippet}}
-  {{=it.html}}
-  </script>
-<script src="./index.js"></script>
 </html>
