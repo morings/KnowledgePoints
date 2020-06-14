@@ -1,0 +1,4 @@
+<view>
+  <button bindtap="getGeo">获取位置信息</button>
+  <button bindtap="chooseGeo">选择位置</button>
+</view>
