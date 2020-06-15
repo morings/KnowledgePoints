@@ -1,0 +1,6 @@
+Page{
+  height: 100%;
+}
+input{
+  border:1px solid #eeeeee
+}

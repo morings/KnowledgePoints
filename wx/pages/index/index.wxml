@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <button bindtap='openSocket'>打开链接</button>
+  <input bindconfirm='handInput' value="{{message}}"/>
+  <button bindtap='sendMessage'>发送消息</button>
+</view>
