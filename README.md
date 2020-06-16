@@ -91,20 +91,20 @@ h1 {
 }
 
 ```
-在标题内还可以包含 <small> 标签或赋予 .small 类的元素，可以用来标记副标题。
+在标题内还可以包含 `<small>` 标签或赋予 .small 类的元素，可以用来标记副标题。
 ```
 .h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small {
     font-size: 65%;
 }
 ```
 ## 页面主体
-Bootstrap 将全局 font-size 设置为 14px，line-height 设置为 1.428。这些属性直接赋予 <body> 元素和所有段落元素。另外，<p> （段落）元素还被设置了等于 1/2 行高（即 10px）的底部外边距（margin）。
+Bootstrap 将全局 font-size 设置为 14px，line-height 设置为 1.428。这些属性直接赋予 `<body>` 元素和所有段落元素。另外，`<p>` （段落）元素还被设置了等于 1/2 行高（即 10px）的底部外边距（margin）。
 ## 内联文本元素
 ### 被删除的文本
-对于被删除的文本使用 <del> 标签。
+对于被删除的文本使用 `<del>` 标签。
 ### 小号文本
-对于不需要强调的inline或block类型的文本，使用 <small> 标签包裹，其内的文本将被设置为父容器字体大小的 85%。标题元素中嵌套的 <small> 元素被设置不同的 font-size 。
-你还可以为行内元素赋予 .small 类以代替任何 <small> 元素
+对于不需要强调的inline或block类型的文本，使用 `<small>` 标签包裹，其内的文本将被设置为父容器字体大小的 85%。标题元素中嵌套的 `<small>` 元素被设置不同的 font-size 。
+你还可以为行内元素赋予 .small 类以代替任何 `<small> `元素
 ### 着重<strong>
 通过增加 font-weight 值强调一段文本。
 ### 斜体<em>
@@ -114,7 +114,7 @@ Bootstrap 将全局 font-size 设置为 14px，line-height 设置为 1.428。这
 ## 改变大小写
 通过这几个类可以改变文本的大小写。
 ## 缩略语 <abbr>
-当鼠标悬停在缩写和缩写词上时就会显示完整内容，Bootstrap 实现了对 HTML 的 <abbr> 元素的增强样式。缩略语元素带有 title 属性，外观表现为带有较浅的虚线框，鼠标移至上面时会变成带有“问号”的指针。如想看完整的内容可把鼠标悬停在缩略语上（对使用辅助技术的用户也可见）, 但需要包含 title 属性。
+当鼠标悬停在缩写和缩写词上时就会显示完整内容，Bootstrap 实现了对 HTML 的 `<abbr>` 元素的增强样式。缩略语元素带有 title 属性，外观表现为带有较浅的虚线框，鼠标移至上面时会变成带有“问号”的指针。如想看完整的内容可把鼠标悬停在缩略语上（对使用辅助技术的用户也可见）, 但需要包含 title 属性。
 ## 地址<address>
 ## 引用<blockquote> 
 在你的文档中引用其他来源的内容。
@@ -130,7 +130,7 @@ Bootstrap 将全局 font-size 设置为 14px，line-height 设置为 1.428。这
 ## 描述<dl><dt><dd>
 带有描述的短语列表。
 ### 水平排列的描述
-.dl-horizontal 可以让 <dl> 内的短语及其描述排在一行。开始是像 <dl> 的默认样式堆叠在一起，随着导航条逐渐展开而排列在一行。
+.dl-horizontal 可以让 `<dl>` 内的短语及其描述排在一行。开始是像 `<dl>` 的默认样式堆叠在一起，随着导航条逐渐展开而排列在一行。
 ```
 @media (min-width: 768px)
 .dl-horizontal dt {
