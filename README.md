@@ -148,3 +148,85 @@ Bootstrap 将全局 font-size 设置为 14px，line-height 设置为 1.428。这
 }
 
 ```
+# 表格
+## 基本表格（table,thead,tbody)
+## 带斑纹的表格
+通过 .table-striped 类可以给 <tbody> 之内的每一行增加斑马条纹样式。
+## 带边框的表格
+添加 .table-bordered 类为表格和其中的每个单元格增加边框。
+## 鼠标悬停
+通过添加 .table-hover 类可以让 <tbody> 中的每一行对鼠标悬停状态作出响应。
+## 紧缩表格
+通过添加 .table-condensed 类可以让表格更加紧凑，单元格中的内补（padding）均会减半
+## 状态类
+通过这些状态类可以为行或单元格设置颜色。
+Class	描述
+.active	鼠标悬停在行或单元格上时所设置的颜色
+.success	标识成功或积极的动作
+.info	标识普通的提示信息或动作
+.warning	标识警告或需要用户注意
+.danger	标识危险或潜在的带来负面影响的动作
+```
+.table>tbody>tr.active>td, .table>tbody>tr.active>th, .table>tbody>tr>td.active, .table>tbody>tr>th.active, .table>tfoot>tr.active>td, .table>tfoot>tr.active>th, .table>tfoot>tr>td.active, .table>tfoot>tr>th.active, .table>thead>tr.active>td, .table>thead>tr.active>th, .table>thead>tr>td.active, .table>thead>tr>th.active {
+    background-color: #f5f5f5;
+}
+.table>tbody>tr.success>td, .table>tbody>tr.success>th, .table>tbody>tr>td.success, .table>tbody>tr>th.success, .table>tfoot>tr.success>td, .table>tfoot>tr.success>th, .table>tfoot>tr>td.success, .table>tfoot>tr>th.success, .table>thead>tr.success>td, .table>thead>tr.success>th, .table>thead>tr>td.success, .table>thead>tr>th.success {
+    background-color: #dff0d8;
+}
+.table>tbody>tr.info>td, .table>tbody>tr.info>th, .table>tbody>tr>td.info, .table>tbody>tr>th.info, .table>tfoot>tr.info>td, .table>tfoot>tr.info>th, .table>tfoot>tr>td.info, .table>tfoot>tr>th.info, .table>thead>tr.info>td, .table>thead>tr.info>th, .table>thead>tr>td.info, .table>thead>tr>th.info {
+    background-color: #d9edf7;
+}
+.table>tbody>tr.warning>td, .table>tbody>tr.warning>th, .table>tbody>tr>td.warning, .table>tbody>tr>th.warning, .table>tfoot>tr.warning>td, .table>tfoot>tr.warning>th, .table>tfoot>tr>td.warning, .table>tfoot>tr>th.warning, .table>thead>tr.warning>td, .table>thead>tr.warning>th, .table>thead>tr>td.warning, .table>thead>tr>th.warning {
+    background-color: #fcf8e3;
+}
+.table>tbody>tr.danger>td, .table>tbody>tr.danger>th, .table>tbody>tr>td.danger, .table>tbody>tr>th.danger, .table>tfoot>tr.danger>td, .table>tfoot>tr.danger>th, .table>tfoot>tr>td.danger, .table>tfoot>tr>th.danger, .table>thead>tr.danger>td, .table>thead>tr.danger>th, .table>thead>tr>td.danger, .table>thead>tr>th.danger {
+    background-color: #f2dede;
+}
+```
+## 响应式表格
+将任何 .table 元素包裹在 .table-responsive 元素内，即可创建响应式表格，其会在小屏幕设备上（小于768px）水平滚动。当屏幕大于 768px 宽度时，水平滚动条消失。
+```
+@media screen and (max-width: 767px)
+.table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+}
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+}
+```
+# 表单
+## 基本实例
+单独的表单控件会被自动赋予一些全局样式。所有设置了 .form-control 类的 <input>、<textarea> 和 <select> 元素都将被默认设置宽度属性为 width: 100%;。 将 label 元素和前面提到的控件包裹在 .form-group 中可以获得最好的排列。
+
+## 内联表单
+为 <form> 元素添加 .form-inline 类可使其内容左对齐并且表现为 inline-block 级别的控件。只适用于视口（viewport）至少在 768px 宽度时（视口宽度再小的话就会使表单折叠）。
+```
+@media (min-width: 768px)
+.form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+```
+## 水平排列的表单
+通过为表单添加 .form-horizontal 类，并联合使用 Bootstrap 预置的栅格类，可以将 label 标签和控件组水平并排布局。这样做将改变 .form-group 的行为，使其表现为栅格系统中的行（row），因此就无需再额外添加 .row 了。
+```
+.form-horizontal .form-group {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+```
+## 输入框组
+通过在文本输入框 <input> 前面、后面或是两边加上文字或按钮，可以实现对表单控件的扩展。为 .input-group 赋予 .input-group-addon 或 .input-group-btn 类，可以给 .form-control 的前面或后面添加额外的元素。
+我们不支持在输入框的单独一侧添加多个额外元素（.input-group-addon 或 .input-group-btn）。
+我们不支持在单个输入框组中添加多个表单控件。
+```
+.input-group .form-control, .input-group-addon, .input-group-btn {
+    display: table-cell;
+}
+```
