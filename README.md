@@ -1,4 +1,4 @@
-# bootstrap知识学习
+# bootstrap-css知识学习
 # 布局容器
 .container根据窗口大小的不同固定宽度的容器div,且左右居中并有一定的padding
 ```
@@ -258,3 +258,96 @@ Bootstrap 对表单控件的校验状态，如 error、warning 和 success 状�
 ## 总结
 1.表单控件要声明form-control 类，label可以声明control-label响应一些状态样式，has-feedback添加图标，help-block添加描述，has-success,has-warning.has-error添加状态，要放在form-group类中
 2.form-inline水平排列每一个项，通过为表单添加 .form-horizontal 类，并联合使用 Bootstrap 预置的栅格类，可以将 label 标签和控件组水平并排布局这样做将改变 .form-group 的行为，使其表现为栅格系统中的行（row），因此就无需再额外添加 .row 了。
+
+# 按钮('.btn类')
+## 可作为按钮使用的标签
+`<a>,<input>,<button>`但推荐用button
+如果 <a> 元素被作为按钮使用 -- 并用于在当前页面触发某些功能 -- 而不是用于链接其他页面或链接当前页面中的其他部分，那么，务必为其设置 role="button" 属性。方便页面解析和阅读（html role属性）
+## 预定义的样式
+btn-default：默认样式，白底黑字
+btn-primary：蓝底白字
+btn-success:绿底白字
+btn-info:淡蓝底白字
+btn-warning:橘黄底白字
+btn-danger:红底白字
+btn-link:链接形式
+## 尺寸
+.btn-lg
+.btn-sm 
+.btn-xs
+
+# 辅助类
+## 情境文本颜色
+## 关闭按钮
+## 三角符号
+```
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid\9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+```
+## 快速浮动
+通过添加一个类，可以将任意元素向左或向右浮动。!important 被用来明确 CSS 样式的优先级。
+```
+.pull-left {
+  float: left !important;
+}
+.pull-right {
+  float: right !important;
+}
+```
+## 内容块居中
+center-block类
+```
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+```
+## 清除浮动
+clearfix 类
+```
+.clearfix:before,
+.clearfix:after{
+  display: table;
+  content: " ";
+}
+.clearfix:after{
+    clear:both
+}
+```
+## 显示或隐藏内容
+```
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+```
+# 响应式工具
+为了加快对移动设备友好的页面开发工作，利用媒体查询功能并使用这些工具类可以方便的针对不同设备展示或隐藏页面内容。另外还包含了针对打印机显示或隐藏内容的工具类。
+有针对性的使用这类工具类，从而避免为同一个网站创建完全不同的版本。相反，通过使用这些工具类可以在不同设备上提供不同的展现形式。
+## 可用的类
+通过visible和hidden加上xs之类的修饰词，来控制在不同窗口大小下的显示和隐藏（例：.visible-xs-block,.hidden-xs,）以及对打印机显示和隐藏某些内容（例：.visible-print-block）
