@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>跨域POST消息发送</title>
+  </head>
+  <body>
+    <textarea id="message"></textarea>
+
+    <input type="button" value="发送" onclick="sendPost()" />
+
+    <iframe
+      src="http://localhost:3000/index.html"
+      id="otherPage"
+      style="display: none;"
+    ></iframe>
+  </body>
+  <script type="text/JavaScript">
+    function sendPost() {       
+        // 获取id为otherPage的iframe窗口对象       
+        var iframeWin = document.getElementById("otherPage").contentWindow;       
+        // 向该窗口发送消息       
+        iframeWin.postMessage(document.getElementById("message").value, 'http://localhost:3000/');   
+    }   
+    // 监听跨域请求的返回   
+    window.addEventListener("message", function(event) {       
+        console.log(event, event.data);   
+    }, false);
+  </script>
+</html>

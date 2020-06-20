@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ 
+</body>
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+  window.addEventListener("message", function( event ) {
+     // 监听父窗口发送过来的数据向服务器发送post请求           
+    var data = event.data;
+    $.ajax({
+        url:"http://localhost:3000/getData",
+        method:"get",
+        dataType :"json",
+        success:(res)=>{
+          window.parent.postMessage(res, "*");   
+        }
+    })
+  })
+</script>
