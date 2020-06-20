@@ -92,3 +92,34 @@ hide 方法调用之后立即触发该事件。
 从远端的数据源加载完数据之后触发该事件。
 ## 下拉dropdown
 三部分，外部dropdown父容器（类），其内部两部分，触发按钮和dropdown-menu菜单
+## 滚动监听
+滚动监听插件是用来根据滚动条所处的位置来自动更新导航项的。如代码所示，滚动导航条下面的区域并关注导航项的变化。下拉菜单中的条目也会自动高亮显示。
+### 需要相对定位（relative positioning）
+无论何种实现方式，滚动监听都需要被监听的组件是 position: relative; 
+### 通过 JavaScript 调用
+在 CSS 中添加 position: relative; 之后，通过 JavaScript 代码启动滚动监听插件：
+```
+$('body').scrollspy({ target: '#navbar-example' })
+```
+### 方法
+.scrollspy('refresh')
+当使用滚动监听插件的同时在 DOM 中添加或删除元素后，你需要像下面这样调用此刷新（ refresh） 方法：
+```
+$('[data-spy="scroll"]').each(function () {
+  var $spy = $(this).scrollspy('refresh')
+})
+```
+### 参数
+#### 可以通过 data 属性或 JavaScript 传递参数。对于 data 属性，其名称是将参数名附着到 data- 后面组成，例如 data-offset=""。
+```
+名称	类型	默认值	描述
+offset	number	10	计算滚动位置时相对于顶部的偏移量（像素数）。
+```
+### 事件
+事件类型	描述
+activate.bs.scrollspy	每当一个新条目被激活后都将由滚动监听插件触发此事件。
+```
+$('#myScrollspy').on('activate.bs.scrollspy', function () {
+  // do something…
+})
+```
