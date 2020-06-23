@@ -3,4 +3,4 @@
 
 ## 前端缓存图
 
-<img src="https://github.com/morings/KnowledgePoints/cache.png">
+ <img src="https://github.com/morings/KnowledgePoints/raw/master/cache.png">
