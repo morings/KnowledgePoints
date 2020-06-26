@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>webSql</title>
+  <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="" class="control-label">姓名：</label>
+        <input type="text" class="form-control" id='name'>
+      </div>
+      <div class="form-group">
+        <label for="" class="control-label">年龄：</label>
+        <input type="text" class="form-control" id='age'>
+      </div>
+      <button class="btn btn-danger" onclick="saveData()" type="button">保存</button>
+    </form>
+  </div>
+  
+</body>
+<script src="./libs/jquery/jquery.js"></script>
+<script src="./libs/bootstrap/js/bootstrap.min.js"></script>
+<script>
+  var query = window.location.search.slice(1).split("&");
+  for(let i=0;i<query.length;i++){
+    let param = query[i].split("=")
+    if(param[0]=='name'){
+      var name = param[1];
+      break;
+    }
+  }
+  const db = openDatabase('test','1.0','测试',2*1024*1024);//版本号不同，数据也不同
+  getData(name)
+  function saveData(){
+    db.transaction(function(tx){
+      let name = $("#name").val();
+      let age =  $("#age").val()
+      tx.executeSql('create table if not exists Person (name primary key,age)')
+      tx.executeSql('replace into Person values (?,?)',[name,age],function(){
+        
+      },
+      function(tx,error){
+        console.log(error)
+      })
+    })
+  }
+  function getData(name){
+    name = decodeURIComponent(name)
+    db.transaction(function(tx){
+      tx.executeSql('select * from Person where name=?',[name],function(tx,result){
+        if(result.rows.length){
+          let data = result.rows[0];
+          $("#name").val(data.name);
+          $("#age").val(data.age)
+        }
+      },function(tx,error){
+        console.log(error)
+      })
+      
+    })
+  }
+</script>
+</html>
