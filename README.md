@@ -91,7 +91,7 @@ hide 方法调用之后立即触发该事件。
 ##### loaded.bs.modal	
 从远端的数据源加载完数据之后触发该事件。
 ## 下拉dropdown
-三部分，外部dropdown父容器（类），其内部两部分，触发按钮和dropdown-menu菜单
+三部分，外部dropdown父容器（类），其内部两部分，触发按钮和dropdown-menu菜单;触发按钮要有data-toggle="dropdown"的属性
 ## 滚动监听
 滚动监听插件是用来根据滚动条所处的位置来自动更新导航项的。如代码所示，滚动导航条下面的区域并关注导航项的变化。下拉菜单中的条目也会自动高亮显示。
 ### 需要相对定位（relative positioning）
@@ -123,3 +123,51 @@ $('#myScrollspy').on('activate.bs.scrollspy', function () {
   // do something…
 })
 ```
+## tab(标签页)
+给一个标签加上data-toggle="tab"，然后指定href为tab的class或id
+```
+<div class="container">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" class='tabHome'>Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class='tabProfile'>Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" class='tabMessages'>Messages</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" class='tabSettings'>Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">home</div>
+    <div role="tabpanel" class="tab-pane" id="profile">profile</div>
+    <div role="tabpanel" class="tab-pane" id="messages">messages</div>
+    <div role="tabpanel" class="tab-pane" id="settings">settings</div>
+  </div>
+  <button class="btn btn-danger" onclick="showTab()">接口调用</button>
+</div>
+```
+### 方法
+tab('show')
+```
+$(".tabHome").tab('show')//
+```
+### 事件
+```
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  e.target // newly activated tab
+  e.relatedTarget // previous active tab
+})
+$('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+  e.target // newly activated tab
+  e.relatedTarget // previous active tab
+})
+$('a[data-toggle="tab"]').on('hide.bs.tab', function (e) {
+  e.target // newly activated tab
+  e.relatedTarget // previous active tab
+})
+$('a[data-toggle="tab"]').on('hidden.bs.tab', function (e) {
+  e.target // newly activated tab
+  e.relatedTarget // previous active tab
+})
+```
+### 过渡效果
+在所有tab标签上加上fade类就行,记得要在初始展示的tab标签上加上in类
