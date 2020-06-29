@@ -1,6 +1,2 @@
-# KnowledgePoints
-零碎的知识点集合
-
-## 前端缓存图
-
- <img src="https://github.com/morings/KnowledgePoints/raw/master/cache.png">
+# label标签
+使用label标签触发关联标签的点击事件

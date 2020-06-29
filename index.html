@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>label</title>
+  <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+     <!--关联点击-->
+    <form>
+      <div class="form-group">
+        <label for="test" style="width:100%">
+          <div class="btn btn-primary btn-block">关联点击</div>
+        </label>
+      </div>
+      <button id="test" onclick='f1()'  class="btn-lg btn-block form-group">真实点击</button>
+    </form>
+  </div>
+</body>
+<script src="./libs/jquery/jquery.js"></script>
+<script src="./libs/bootstrap/js/bootstrap.min.js"></script>
+<script>
+  function f1(){
+    alert("我被点击了")
+  }
+</script>
+</html>
