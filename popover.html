@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>popover</title>
+</head>
+<body>
+  <div class="container">
+    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." >
+      Popover on 左侧
+    </button>
+    
+    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-trigger="hover">
+      Popover on 顶部
+    </button>
+    
+    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" rel="popover" data-content="Vivamus  
+    sagittis lacus vel augue laoreet rutrum faucibus." data-trigger="click">
+      Popover on 底部
+    </button>
+    
+    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-trigger="focus" >
+      Popover on 右侧
+    </button>
+  </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+  $(function () {
+    /*$('[data-toggle="popover"]').popover({
+
+    })*/
+    $('body').popover({
+      selector:'[rel="popover"]'//只有rel=popover才显示，其它没反应
+    })
+  })
+</script>
+</html>
