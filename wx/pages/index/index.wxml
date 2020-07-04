@@ -1,0 +1,2 @@
+<view class="move"  animation="{{ani}}">move</view>
+<button class="btn" style="width:100%" bindtap='start'>start</button>
