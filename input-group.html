@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>输入框组</title>
+  <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+  <form class="container">
+    <div class="form-group">
+      <label for="">基本使用</label>
+      <div class="input-group">
+        <span class="input-group-addon" >@</span>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">单选框</label>
+      <div class="input-group">
+        <div class="input-group-addon" >
+          <input type="radio">
+        </div>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">复选框</label>
+      <div class="input-group">
+        <div class="input-group-addon" >
+          <input type="checkbox">
+        </div>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">按钮</label>
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class=" btn btn-default" type="button"> Go!</button>
+        </span>  
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">下拉框</label>
+      <div class="input-group">
+        <div class="input-group-btn" >
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">多个按钮</label>
+      <div class="input-group">
+        <div class="input-group-btn" >
+          <button class="btn btn-default" type="button"> Go!</button>
+          <button class="btn  btn-default" type="button"> Back!</button>
+        </div>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+  </form>
+</body>
+<script src="./libs/jquery/jquery.js"></script>
+<script src="./libs/bootstrap/js/bootstrap.min.js"></script>
+</html>
