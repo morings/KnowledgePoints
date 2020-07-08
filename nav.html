@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>导航</title>
+  <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+  <form class="container">
+    <div class="form-group">
+      <label for="">基本使用</label>
+   
+      <ul class="nav nav-tabs">
+        <li class="active"><a>Home</a></li>
+        <li ><a>My</a></li><!--必须放在a标签中-->
+      </ul>
+     
+    </div>
+    <div class="form-group">
+      <label for="">胶囊式</label>
+      <ul class="nav nav-pills">
+        <li class="active"><a>Home</a></li>
+        <li ><a>My</a></li><!--nav-pills-->
+      </ul>
+    </div>
+    <div class="form-group">
+      <label for="">垂直胶囊式</label>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a>Home</a></li>
+        <li ><a>My</a></li><!--nav-stacked只有搭配nav-pills才有用，搭配nav-tabs不行-->
+      </ul>
+    </div>
+    <div class="form-group">
+      <label for="">两边对齐式</label>
+      <ul class="nav nav-pills nav-justified">
+        <li class="active"><a>Home</a></li>
+        <li ><a>My</a></li><!--nav-justified-->
+      </ul>
+      <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a>Home</a></li>
+        <li ><a>My</a></li><!--nav-justified-->
+      </ul>
+    </div>
+    <div class="form-group">
+      <label for="">带有下拉框</label>
+      <ul class="nav nav-tabs ">
+        <li class="active">      
+          <a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Dropdown
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+            <li><a href="#">Regular link</a></li>
+            <li class="disabled"><a href="#">Disabled link</a></li>
+            <li><a href="#">Another link</a></li>
+          </ul>           
+        </li>
+        <li ><a>My</a></li><!--nav-justified-->
+      </ul>
+    </div>
+    <div class="form-group">
+      <label for="">不可用</label>
+      <ul class="nav nav-tabs">
+        <li class="active"><a>Home</a></li>
+        <li class="disabled"><a>My</a></li><!--nav-justified-->
+      </ul>
+    </div>
+  </form>
+</body>
+<script src="./libs/jquery/jquery.js"></script>
+<script src="./libs/bootstrap/js/bootstrap.min.js"></script>
+</html>
