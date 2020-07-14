@@ -1,6 +1,12 @@
-# KnowledgePoints
-零碎的知识点集合
+# dpr页面适配
+1.物理像素（physical pixel）
+一个物理像素是显示器（手机屏幕）上最小的物理显示物理单元，在操作系统的调度下，每一个设备都有自己的颜色值和亮度值。
 
-## 前端缓存图
+2.设备独立像素（density-independent pixel）
+设备独立像素（也叫密度无关像素），可以认为是计算机坐标系统中得一个点，这个点代表一个可以由程序使用的虚拟像素（比如：css像素），然后由相关系统转换为物理像素。
 
- <img src="https://github.com/morings/KnowledgePoints/raw/master/cache.png">
+3.设备像素比（device pixel ratio）
+设备像素比(简称dpr)定义了物理像素和设备独立像素的对应关系
+设备像素比＝物理像素／设备独立像素 （在x方向或者y方向）
+
+1设置width为device-width*dpr然后设置scale为1/dpr
