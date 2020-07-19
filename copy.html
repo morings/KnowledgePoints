@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>copy</title>
+</head>
+<body>
+  <div >12334</div>
+  <input type="text">
+</body>
+</html>
+<script src="./libs/jquery/jquery.js"></script>
+<script type="text/javascript">
+//复制带版权
+    var ua = navigator.userAgent.toLowerCase();
+    if (window.ActiveXObject) {  /* 兼容旧版的IE */
+        document.body.oncopy = function () {
+            event.returnValue = false;
+            var selectedText = document.selection.createRange().text;
+            var pageInfo = '<br>---------------------<br>著作权归作者所有。<br>'
+                + '商业转载请联系作者获得授权，非商业转载请注明出处。<br>'
+                + '作者：Bravo Yeung<br> 源地址：' + document.location.href
+                + '<br>来源：博客园cnblogs<br>© 版权声明：本文为博主原创文章，转载请附上博文链接！';
+            clipboardData.setData('Text', selectedText.replace(/\n/g, '<br>') + pageInfo);
+        }
+    }
+    else {
+        function addCopyRight() {
+            var body_element = document.getElementsByTagName('body')[0];
+            var selection = window.getSelection();
+            var pageInfo = '<br>---------------------<br>著作权归作者所有。<br>'
+                + '商业转载请联系作者获得授权，非商业转载请注明出处。<br>'
+                + '作者：Bravo Yeung<br> 源地址：' + document.location.href
+                + '<br>来源：博客园cnblogs<br>© 版权声明：本文为博主原创文章，转载请附上博文链接！';
+            var copyText = selection.toString().replace(/\n/g, '<br>') + pageInfo;  // Solve the line breaks conversion issue
+            var newDiv = document.createElement('div');
+            newDiv.style.position = 'absolute';
+            newDiv.style.left = '-99999px';
+            body_element.appendChild(newDiv);
+            newDiv.innerHTML = copyText;
+            selection.selectAllChildren(newDiv);
+            window.setTimeout(function () {
+                body_element.removeChild(newDiv);
+            }, 0);
+        }
+        document.oncopy = addCopyRight;
+    }
+    document.onpaste = function(e){
+      console.log(e.clipboardData.getData('text'))
+    }
+</script>
