@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>execCommand</title>
+  <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.min.css">
+  <style>
+    .form-control{
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body class="container">
+  <input type="button" value="剪切" onclick="document.execCommand('Cut')" class='form-control'>
+  <input type="button" value="拷贝" onclick="document.execCommand('Copy')" class='form-control'>
+  <input type="button" value="粘贴" onclick="document.execCommand('Paste')" class='form-control'>
+  <input type="button" value="撤消" onclick="document.execCommand('Undo')" class='form-control'>
+  <input type="button" value="重做" onclick="document.execCommand('Redo')"" class='form-control'>
+  <input type="button" value="删除" onclick="document.execCommand('Delete')" class='form-control'>
+  <input type="button" value="黑体" onclick="document.execCommand('Bold')" class='form-control'>
+  <input  class='form-control'>
+  <input type="button" value="斜体" onclick="document.execCommand('Italic')" class='form-control'>
+  <input type="button" value="下划线" onclick="document.execCommand('Underline')" class='form-control'>
+  <input type="button" value="停止" onclick="document.execCommand('stop')" class='form-control'>
+  <input type="button" value="保存" onclick="document.execCommand('SaveAs')" class='form-control'>
+  <input type="button" value="另存为" onclick="document.execCommand('Saveas',false,'c:\\test.htm')" class='form-control'>
+  <input type="button" value="字体" onclick="document.execCommand('FontName',false,fn)" class='form-control'>
+  <input type="button" value="字体大小" onclick="document.execCommand('FontSize',false,fs)" class='form-control'>
+  <input type="button" value="刷新" onclick="document.execCommand('refresh',false,0)" class='form-control'>
+ 
+</body>
+</html>
+<!--基本上就是模拟右键菜单事件-->
