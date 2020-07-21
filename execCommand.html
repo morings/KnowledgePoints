@@ -20,6 +20,7 @@
   <input type="button" value="删除" onclick="document.execCommand('Delete')" class='form-control'>
   <input type="button" value="黑体" onclick="document.execCommand('Bold')" class='form-control'>
   <input  class='form-control'>
+  <input type="text" oninput="bindInput(event)">
   <input type="button" value="斜体" onclick="document.execCommand('Italic')" class='form-control'>
   <input type="button" value="下划线" onclick="document.execCommand('Underline')" class='form-control'>
   <input type="button" value="停止" onclick="document.execCommand('stop')" class='form-control'>
@@ -30,5 +31,13 @@
   <input type="button" value="刷新" onclick="document.execCommand('refresh',false,0)" class='form-control'>
  
 </body>
+<script>
+  function bindInput(e){
+    let value = e.target.value;
+    if(isNaN(value)){
+      document.execCommand('Undo')
+    }
+  }
+</script>
 </html>
 <!--基本上就是模拟右键菜单事件-->
