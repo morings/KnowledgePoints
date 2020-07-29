@@ -8,17 +8,17 @@
     <textarea id="message"></textarea>
 
     <input type="button" value="发送" onclick="sendPost()" />
-
+    <iframe src="./node/static/index.html" name='myPage' style="display: none;"></iframe><!--同域下的ifame可以与父页面相互访问里面的属性-->
     <iframe
       src="http://localhost:3000/index.html"
-      id="otherPage"
       style="display: none;"
+      name='otherPage'
     ></iframe>
   </body>
   <script type="text/JavaScript">
     function sendPost() {       
         // 获取id为otherPage的iframe窗口对象       
-        var iframeWin = document.getElementById("otherPage").contentWindow;       
+        var iframeWin = window.otherPage;       
         // 向该窗口发送消息       
         iframeWin.postMessage(document.getElementById("message").value, 'http://localhost:3000/');   
     }   
