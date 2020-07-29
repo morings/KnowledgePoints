@@ -53,8 +53,10 @@ Compile.prototype = {
                 var dir = attrName.substring(2);
                 if (self.isEventDirective(dir)) {  // 事件指令
                     self.compileEvent(node, self.vm, exp, dir);
-                } else {  // v-model 指令
+                } else if(self.isModelDirective(dir)){  // v-model 指令
                     self.compileModel(node, self.vm, exp, dir);
+                }else if(self.isBindDirective(dir)){  // v-model 指令
+                    self.compileBind(node, self.vm, exp, dir);
                 }
                 node.removeAttribute(attrName);
             }
@@ -93,18 +95,36 @@ Compile.prototype = {
             val = newValue;
         });
     },
+    compileBind:function (node, vm, exp, dir) {
+        var self = this;
+        var attr = dir.split(':')[1];
+        var val = this.vm[exp];
+        this.bindUpdater(node,attr,val);
+        new Watcher(this.vm, exp, function (value) {
+            self.bindUpdater(node,attr,value);
+        });
+    },
     updateText: function (node, value) {
         node.textContent = typeof value == 'undefined' ? '' : value;
     },
     modelUpdater: function(node, value, oldValue) {
         node.value = typeof value == 'undefined' ? '' : value;
     },
+    bindUpdater:function(node,attr,value){
+        node.setAttribute(attr,value);
+    },
     isDirective: function(attr) {
         return attr.indexOf('v-') == 0;
     },
+    isModelDirective: function(dir){
+        return dir.indexOf('model') == 0;
+    },//v-model
     isEventDirective: function(dir) {
         return dir.indexOf('on:') === 0;
-    },
+    },//v-on
+    isBindDirective:function(dir){
+        return dir.indexOf('bind:') === 0;
+    },//v-bind:
     isElementNode: function (node) {
         return node.nodeType == 1;
     },
