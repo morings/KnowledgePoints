@@ -1,6 +1,10 @@
-# KnowledgePoints
-零碎的知识点集合
+# self-vue
+- vue数据双向绑定原理分析和简单实现
+- 代码总共分为三个版本，v3为最终版本
 
-## 前端缓存图
+## 效果图
+![Mou icon](./selfvue.gif)
+## 博客地址
+[http://www.cnblogs.com/canfoo/p/6891868.html](http://www.cnblogs.com/canfoo/p/6891868.html)
 
- <img src="https://github.com/morings/KnowledgePoints/raw/master/cache.png">
+
