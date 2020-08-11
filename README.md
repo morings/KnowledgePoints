@@ -1,6 +1,3 @@
-# KnowledgePoints
-零碎的知识点集合
-
-## 前端缓存图
-
- <img src="https://github.com/morings/KnowledgePoints/raw/master/cache.png">
+# Range对象的使用
+## document.createRange()
+## document.execCommand()这个api只能在真正的用户操作之后才能被触发

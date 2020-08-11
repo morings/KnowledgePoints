@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="p1"><b>hello</b>world!</p>
+  <button onclick="copy()">复制</button>
+</body>
+<script>
+  var range1 = document.createRange();
+  var range2 = document.createRange();
+  var p1 = document.getElementById('p1')
+  range1.selectNode(p1)
+  range2.selectNodeContents(p1)
+  window.getSelection().addRange(range2); 
+  document.execCommand('copy')//放外面不起作用，会返回false调用失败
+  function copy(){
+    document.execCommand('copy');//必须要有操作execCommand才起作用
+  }
+  
+</script>
+</html>
