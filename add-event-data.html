@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>add-event-data</title>
+</head>
+<body>
+  <div id="p1"></div>
+</body>
+<script>
+  var event = new CustomEvent('build', { detail: "foo" });
+  var p1 = document.getElementById('p1');
+  p1.addEventListener('build', function (e) {alert(e.detail) });
+  p1.dispatchEvent(event)
+</script>
+</html>
