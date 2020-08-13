@@ -1,6 +1,3 @@
-# KnowledgePoints
-零碎的知识点集合
+# proxytable
+只要是请求都可能被代理（包括资源请求），当本地存在该资源或该请求优先使用本地的，没有才会被代理。
 
-## 前端缓存图
-
- <img src="https://github.com/morings/KnowledgePoints/raw/master/cache.png">
