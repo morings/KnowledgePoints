@@ -110,3 +110,21 @@
   <li> <p>none</p> </li> 
 </ul>
 <p>通过检查 Sec-Fetch-Site 的值，您可以确定请求是 “同站”，“同源” 还是 “跨站”。</p>
+
+## 设置domain
+<p>假设当前域名为blog.xiaoming.com，经测试发现，JS在写入cookie时：</p>
+
+```
+xei.setCookie('test1', 'abcd', 30, '/'); // 成功，默认写入当前域名
+xei.setCookie('test2', 'abcd', 30, '/', 'blog.xiaoming.com'); // 成功，前面追加一个“.”
+xei.setCookie('test3', 'abcd', 30, '/', 'abcd.xiaoming.com'); // 写入不成功
+xei.setCookie('test4', 'abcd', 30, '/', '.xiaoming.com'); // 成功
+xei.setCookie('test5', 'abcd', 30, '/', 'xiaoming.com'); // 成功，前面追加一个“.”
+xei.setCookie('test6', 'abcd', 30, '/', 'www.qq.com'); // 写入不成功
+
+```
+<ol>
+<li>不传domain，默认当前域名；</li>
+<li>只要传了domain，则会强制在前面加上一个<code>.</code>，不管是一级还是二级域名；</li>
+<li>domain只能是自身或者它的上级域名，否则写入不成功；</li>
+</ol>
