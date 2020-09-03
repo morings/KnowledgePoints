@@ -4,7 +4,7 @@
 <ol>
   <li>浏览器端某个Cookie的domain字段等于http://aaa.www.com或者http://www.com (在同一个域内)</li>
   <li>都是http或者https，或者不同的情况下Secure属性为false</li>
-  <li>要发送请求的路径，即上面的xxxxx跟浏览器端Cookie的path属性必须一致，或者是浏览器端Cookie的path的子目录，比如浏览器端Cookie的path为/test，那么xxxxxxx必须为/test或者/test/xxxx等子目录(如果cookie设置在http://www.com/list中，那么请求http://aaa.www.com/xxxxx/list可以携带)</li>
+  <li>要发送请求的路径，即上面的xxxxx跟浏览器端Cookie的path属性必须一致，或者是浏览器端Cookie的path的子目录，比如浏览器端Cookie的path为/test，那么xxxxxxx必须为/test或者/test/xxxx等子目录(如果cookie设置在http://www.com/list中，那么请求http://aaa.www.com/list可以携带)</li>
 </ol>
 
 ## SameSite小知识
