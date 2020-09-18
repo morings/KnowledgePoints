@@ -1,12 +1,12 @@
 const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
+  mode:isProd?'production':'development',
   devtool: isProd
     ? false
     : '#cheap-module-source-map',
@@ -46,6 +46,16 @@ module.exports = {
         }
       },
       {
+        test: /\.css$/,
+        // 重要：使用 vue-style-loader 替代 style-loader
+        use: isProd
+          ? ExtractTextPlugin.extract({
+              use: 'css-loader',
+              fallback: 'vue-style-loader'
+            })
+          : ['vue-style-loader', 'css-loader']
+      },
+      {
         test: /\.styl(us)?$/,
         use: isProd
           ? ExtractTextPlugin.extract({
@@ -77,7 +87,6 @@ module.exports = {
         })
       ]
     : [
-        new VueLoaderPlugin(),
-        new FriendlyErrorsPlugin()
+        new VueLoaderPlugin()
       ]
 }
