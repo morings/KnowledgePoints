@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import Register from "./Register.vue"
 export default {
     name: 'login',
     data() {
@@ -43,7 +44,7 @@ export default {
                 email: '',
                 password: ''
             },
-            activeName: this.$store.state.activeName,
+            activeName: 'first',
             // 输入校验
             rules: {
                 email: [{
