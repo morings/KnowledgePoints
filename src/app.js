@@ -1,11 +1,12 @@
 // app.js
 import Vue from 'vue'
 import App from './App.vue'
-import axios from 'axios'
 import { createRouter } from './router'
 import ElementUI from 'element-ui';
 import "element-ui/lib/theme-chalk/index.css"
+import api from "./components/api"
 Vue.use(ElementUI)
+Vue.prototype.$api = api;
 export function createApp () {
   // 创建 router 实例
   const router = createRouter()

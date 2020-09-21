@@ -4,6 +4,7 @@ const path = require('path')
 const express = require('express')
 const bundle = require('./dist/vue-ssr-server-bundle.json')
 const favicon = require('serve-favicon')
+var bodyParser = require('body-parser')
 const template = fs.readFileSync(path.resolve(__dirname, './index.html'), 'utf-8')
 const clientManifest = require('./dist/vue-ssr-client-manifest.json')
 const resolve = file => path.resolve(__dirname, file)
@@ -14,6 +15,7 @@ const renderer = require('vue-server-renderer').createBundleRenderer(bundle,{
   clientManifest,
   basedir: resolve('./dist'),
 })
+const {login,register} = require("./src/server/login")
 const app = express()
 const serve = (path, cache) => express.static(resolve(path), {
   maxAge: cache && isProd ? 1000 * 60 * 60 * 24 * 30 : 0
@@ -21,6 +23,12 @@ const serve = (path, cache) => express.static(resolve(path), {
 app.use('/dist', serve('./dist', true))
 app.use(favicon('./public/logo-48.png'))
 app.use('/public', serve('./public', true))
+// create application/json parser
+var jsonParser = bodyParser.json()
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+app.post('/register',jsonParser,register);
+app.post('/login',jsonParser,login);
 app.get('*', (req, res) => {
   const context = { url: req.url }
   renderer.renderToString(context, (err, html) => {

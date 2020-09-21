@@ -97,26 +97,18 @@ export default {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
                     let opt = this.registerValidateForm;
-                    api.userRegister(opt).then(({
-                        data
-                    }) => {
-                        if (data.success) {
-                            this.$message({
-                                type: 'success',
-                                message: `注册成功，请登录`
-                            })
-                            //  Register 设计为了 Login 的组件，所以成功跳转时刷新一次页面
+                    this.$api.register(opt).then(data => {           
+                        this.$message({
+                            type: 'success',
+                            message: `注册成功，请登录`
+                        })
+                        //  Register 设计为了 Login 的组件，所以成功跳转时刷新一次页面
+                        setTimeout(()=>{
                             this.$router.go(0)
                             this.$router.push('/login')
-                        } else {
-                            this.$message({
-                                type: 'info',
-                                message: '此账户已存在'
-                            })
-                        }
-                    }).catch((err) => {
-                        console.log(err);
-                    })
+                        },2000)
+                       
+                    })                    
                 } else {
                     console.log('Error Submit!!');
                     return false;

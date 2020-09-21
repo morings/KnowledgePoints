@@ -80,33 +80,11 @@ export default {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
                     let opt = this.dynamicValidateForm;
-                    api.UserLogin(opt).then(({
-                        data
-                    }) => {
-                        console.log(data)
-                        if (!data.info) {
-                            this.$message({
-                                type: 'info',
-                                message: '账号不存在'
-                            })
-                        }
-                        if (data.success) {
-                            this.$message({
-                                type: 'success',
-                                message: '登录成功'
-                            })
-                            this.$store.dispatch('UserLogin', data.token)
-                            this.$store.dispatch('UserName', data.email)
-                            let redirect = decodeURIComponent(this.$route.query.redirect || '/');
-                            this.$router.push({
-                                path: redirect
-                            })
-                        } else {
-                            this.$message({
-                                type: 'info',
-                                message: '密码错误'
-                            })
-                        }
+                    this.$api.login(opt).then(data => {                                      
+                        this.$message({
+                            type: 'success',
+                            message: '登录成功'
+                        })            
                     })
                 } else {
                     console.log('Error Submit!!');
