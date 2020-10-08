@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect:'/index'
+    redirect:'/chat'
   },
   {
     path: '/login',
@@ -14,18 +14,25 @@ const routes = [
     component: () => import( '../views/login/Login.vue')
   },
   {
-    path: '/index',
-    name: 'Index', 
-    component: () => import( '../views/chat/index.vue'),
-    meta:{
-      needLogin:true
-    }
-  }
+    path:'/main',
+    redirect:'/chat',
+    component: () => import( '../views/main/index.vue'),
+    children:[
+      {
+        path: '/chat',
+        name: 'Chat', 
+        component: () => import( '../views/main/chat/Chat.vue'),
+        meta:{
+          needLogin:true
+        }
+      }
+    ]
+  } 
 ]
 const router = new VueRouter({
   routes
 })
-router.beforeEach((to,form,next)=>{
+/*router.beforeEach((to,form,next)=>{
   if(to.meta.needLogin){
     if(getCookie('userid')){
       next()
@@ -35,5 +42,5 @@ router.beforeEach((to,form,next)=>{
   }else{
     next()
   }  
-})
+})*/
 export default router

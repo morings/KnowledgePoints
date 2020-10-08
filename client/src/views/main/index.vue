@@ -1,6 +1,7 @@
 <template>
 <div class="index">
   <main-nav class="side"></main-nav>
+  <router-view class="content"></router-view>
 </div> 
 </template>
 <script>
@@ -20,6 +21,10 @@ export default {
 .side{
   width: 70px;
   flex-shrink: 0;
+  height: 100%;
+}
+.content{
+  flex:1;
   height: 100%;
 }
 </style>

@@ -13,7 +13,6 @@
 export default {
   data(){
     return{
-      active:0,
       navs:[
         {
           name:"聊天",
@@ -23,15 +22,20 @@ export default {
         {
           name:"通讯录",
           class:'iconweimingmingwenjianjia_tongxunlu',
-           path:'/chat'
+           path:'/chat1'
         },
         {
           name:"收藏",
           class:'iconshoucanghezi',
-           path:'/chat'
+           path:'/chat2'
         }
       ],
       avatar:''
+    }
+  },
+  computed:{
+    active(){
+      return this.$router.path
     }
   },
   mounted(){
