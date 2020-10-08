@@ -45,6 +45,7 @@ const register = function (req, res) {
    //先查询有没有这个user
   var UserPsw = req.body.password;
   var Email = req.body.email;
+  var avatar = req.body.avatar;
   console.log(req.body)
   //密码加密
   var md5 = crypto.createHash("md5");
@@ -62,7 +63,7 @@ const register = function (req, res) {
         else {
             if(obj.length == 0){
                 //如果查出无数据,就将账户密码插入数据库
-                insert(Email,newPas); 
+                insert(Email,newPas,avatar); 
                 //返回数据到前端
                 res.send({success:true,message:"注册成功"}) 
             }else if(obj.length !=0){

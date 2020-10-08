@@ -6,12 +6,20 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect:'/login'
+    redirect:'/index'
   },
   {
     path: '/login',
     name: 'Login',  
     component: () => import( '../views/login/Login.vue')
+  },
+  {
+    path: '/index',
+    name: 'Index', 
+    component: () => import( '../views/chat/index.vue'),
+    meta:{
+      needLogin:true
+    }
   }
 ]
 const router = new VueRouter({

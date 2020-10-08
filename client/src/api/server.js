@@ -18,6 +18,7 @@ server.interceptors.response.use(
   },
 //接口错误状态处理，也就是说无响应时的处理
   error => {
+    Message({message:'接口错误',type:'error'})
     return Promise.reject(error) 
   }// 返回接口返回的错误信息
 )

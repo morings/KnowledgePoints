@@ -2,6 +2,13 @@
   <div class="">
     <el-form :model="registerValidateForm" label-width="100px"  ref="registerValidateForm">
           <el-form-item
+            prop="avatar"
+            label="头像"
+            :rules="rules.avatar"
+          >
+            <avatar-upload v-model="registerValidateForm.avatar"></avatar-upload>
+          </el-form-item>
+          <el-form-item
             prop="email"
             label="邮箱"
             :rules="rules.email"
@@ -28,8 +35,12 @@
   </div>
 </template>
 <script>
+import AvatarUpload from "../../components/AvatarUpload"
 export default {
     name: 'login',
+    components:{
+        AvatarUpload
+    },
     data() {
         // 密码安全性要求
         let validatePass1 = (rule, value, callback) => {
@@ -52,9 +63,16 @@ export default {
                 email: '',
                 password: '',
                 checkPass: '',
-                first: 'first'
+                first: 'first',
+                avatar:''
             },
             rules: {
+                avatar: [{
+                        required: true,
+                        message: '请上传图像',
+                        trigger: 'blur'
+                    }
+                ],
                 email: [{
                         required: true,
                         message: '请输入邮箱地址',
@@ -93,10 +111,16 @@ export default {
         resetForm(formName) {
             this.$refs[formName].resetFields();
         },
-        submitForm(formName) {
+        async submitForm(formName) {
+            let upload = new FormData();
+            upload.append('fulAvatar',this.registerValidateForm.avatar);
+            let {newPath} = await this.$api.upload(upload)
             this.$refs[formName].validate((valid) => {
                 if (valid) {
-                    let opt = this.registerValidateForm;
+                    let opt = {
+                        ...this.registerValidateForm,
+                        avatar:newPath
+                    };
                     this.$api.register(opt).then(data => {           
                         this.$message({
                             type: 'success',
