@@ -1,13 +1,16 @@
 <template>
   <div class="Chat">
     <chat-side class="ChatSide"></chat-side>
+    <chat-window class="star-flex-item"></chat-window>
   </div>
 </template>
 <script>
 import ChatSide from "./ChatSide"
+import ChatWindow from "./ChatWindow"
 export default {
   components:{
-    ChatSide
+    ChatSide,
+    ChatWindow
   }
 }
 </script>

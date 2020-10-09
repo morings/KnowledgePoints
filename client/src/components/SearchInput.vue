@@ -19,7 +19,7 @@ export default {
 <style lang="scss">
 .SearchInput{
   .el-input__inner{
-    background-color: #DBD9D8;
+    background-color: #e8e6e6;
     &:focus{
       background-color: #fff;
     }

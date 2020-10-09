@@ -5,8 +5,8 @@
       <i class="iconfont iconPlus"></i>
     </div>
     <div class="receiveList">
-      <vue-scroll>
-        <receive-item v-for="item in receiveList" :key="item.name" :item='item'></receive-item>
+      <vue-scroll :ops='ops'>
+        <receive-item v-for="(item,index) in receiveList" :key="index" :item='item'></receive-item>
       </vue-scroll>
     </div>
   </div>
@@ -23,15 +23,126 @@ export default {
           name:"冯倩",
           avatar:'',
           desc:'',
-          time:''
+          time:'14：06'
         },
          {
           name:"订阅号",
           avatar:'',
           desc:'前端大全，做了八年前端还是一事无成',
-          time:''
+          time:'昨天'
+        },
+        {
+          name:"冯倩",
+          avatar:'',
+          desc:'',
+          time:'14：06'
+        },
+         {
+          name:"订阅号",
+          avatar:'',
+          desc:'前端大全，做了八年前端还是一事无成',
+          time:'昨天'
+        },
+        {
+          name:"冯倩",
+          avatar:'',
+          desc:'',
+          time:'14：06'
+        },
+         {
+          name:"订阅号",
+          avatar:'',
+          desc:'前端大全，做了八年前端还是一事无成',
+          time:'昨天'
+        },
+        {
+          name:"冯倩",
+          avatar:'',
+          desc:'',
+          time:'14：06'
+        },
+         {
+          name:"订阅号",
+          avatar:'',
+          desc:'前端大全，做了八年前端还是一事无成',
+          time:'昨天'
+        },
+        {
+          name:"冯倩",
+          avatar:'',
+          desc:'',
+          time:'14：06'
+        },
+         {
+          name:"订阅号",
+          avatar:'',
+          desc:'前端大全，做了八年前端还是一事无成',
+          time:'昨天'
+        },
+        {
+          name:"冯倩",
+          avatar:'',
+          desc:'',
+          time:'14：06'
+        },
+         {
+          name:"订阅号",
+          avatar:'',
+          desc:'前端大全，做了八年前端还是一事无成',
+          time:'昨天'
+        },
+        {
+          name:"冯倩",
+          avatar:'',
+          desc:'',
+          time:'14：06'
+        },
+         {
+          name:"订阅号",
+          avatar:'',
+          desc:'前端大全，做了八年前端还是一事无成',
+          time:'昨天'
+        },{
+          name:"冯倩",
+          avatar:'',
+          desc:'',
+          time:'14：06'
+        },
+         {
+          name:"订阅号",
+          avatar:'',
+          desc:'前端大全，做了八年前端还是一事无成',
+          time:'昨天'
+        },
+        {
+          name:"冯倩",
+          avatar:'',
+          desc:'',
+          time:'14：06'
+        },
+         {
+          name:"订阅号",
+          avatar:'',
+          desc:'前端大全，做了八年前端还是一事无成',
+          time:'昨天'
+        },{
+          name:"冯倩",
+          avatar:'',
+          desc:'',
+          time:'14：06'
+        },
+         {
+          name:"订阅号",
+          avatar:'',
+          desc:'前端大全，做了八年前端还是一事无成',
+          time:'昨天'
         }
-      ]
+      ],
+      ops:{
+        bar:{
+          background:'#e8e6e6'
+        }
+      }
     }
   },
   components:{
@@ -43,8 +154,8 @@ export default {
 <style lang="scss" scoped>
 .ChatSide{
   width: 315px;
-  background-color: #E5E4E4;
-  padding: 25px 0;
+  background-color: #f5f5f5;
+  padding-top: 25px ;
   display: flex;
   flex-direction: column;
   .search{
@@ -62,7 +173,8 @@ export default {
     }
   }
   .receiveList{
-    flex:1
+    height: calc(100% - 43px);
+    width: 100%;
   }
 }
 </style>
