@@ -158,6 +158,7 @@ export default {
   padding-top: 25px ;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid #DCDFE6;
   .search{
     display: flex;
     padding: 0 12px;
