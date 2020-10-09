@@ -5,7 +5,12 @@
       <vue-scroll></vue-scroll>
     </div>
     <div class="sendPanel">
-      <div class="tools"></div>
+      <div class="tools">
+        <i class="iconfont iconbiaoqing-copy"></i>
+        <i class="iconfont iconwenjian"></i>
+        <i class="iconfont iconjianqie"></i>
+        <i class="iconfont iconxiaoxi"></i>
+      </div>
       <el-input type='textarea'></el-input>
       <el-button type="info" plain size='mini' class="sendBtn">发送</el-button>
     </div>
