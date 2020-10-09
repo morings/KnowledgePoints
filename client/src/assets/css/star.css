@@ -1,0 +1,12 @@
+.star-flex1{
+  display: flex;
+  align-items: center;
+}
+.star-flex-item{
+  flex:1
+}
+.star-textover{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

@@ -1,20 +1,20 @@
 <template>
   <div class="Chat">
-    <receive-list class="receiveList"></receive-list>
+    <chat-side class="ChatSide"></chat-side>
   </div>
 </template>
 <script>
-import ReceiveList from "./ReceiveList"
+import ChatSide from "./ChatSide"
 export default {
   components:{
-    ReceiveList
+    ChatSide
   }
 }
 </script>
 <style lang="scss" scoped>
 .Chat{
   display: flex;
-  .receiveList{
+  .ChatSide{
     flex-shrink: 0;
     height: 100%;
   }
