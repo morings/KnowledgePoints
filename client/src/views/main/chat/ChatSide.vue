@@ -1,10 +1,7 @@
 <template>
   <div class="ChatSide">
-    <div class="search">
-      <search-input v-model="search"></search-input>
-      <i class="iconfont iconPlus"></i>
-    </div>
-    <div class="receiveList">
+    <search-panel></search-panel>
+    <div class="receiveList star-side-main">
       <vue-scroll :ops='ops'>
         <receive-item v-for="(item,index) in receiveList" :key="index" :item='item'></receive-item>
       </vue-scroll>
@@ -12,7 +9,7 @@
   </div>
 </template>
 <script>
-import SearchInput from "../../../components/SearchInput"
+import SearchPanel from "@components/SearchPanel"
 import ReceiveItem from "@components/ReceiveItem"
 export default {
   data(){
@@ -146,7 +143,7 @@ export default {
     }
   },
   components:{
-    SearchInput,
+    SearchPanel,
     ReceiveItem
   }
 }
@@ -155,27 +152,8 @@ export default {
 .ChatSide{
   width: 315px;
   background-color: #f5f5f5;
-  padding-top: 25px ;
   display: flex;
   flex-direction: column;
   border-right: 1px solid #DCDFE6;
-  .search{
-    display: flex;
-    padding: 0 12px;
-    margin-bottom: 12px;
-    align-items: center;
-    flex-shrink: 0;
-    .iconPlus{
-      margin-left: 12px;
-      flex-shrink: 0;
-      font-size: 30px;
-      color:#606060;
-      cursor: pointer;
-    }
-  }
-  .receiveList{
-    height: calc(100% - 43px);
-    width: 100%;
-  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="Chat">
     <chat-side class="ChatSide"></chat-side>
-    <chat-window class="star-flex-item"></chat-window>
+    <chat-window class="star-flex-item "></chat-window>
   </div>
 </template>
 <script>

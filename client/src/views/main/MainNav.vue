@@ -2,7 +2,7 @@
   <nav class="main-nav">
     <img :src="avatar" alt="头像" class="avatar_img" v-viewer>
     <div class="navs">
-      <router-link :to="'index'" v-for="(item,index) in navs" :key="item.name" :title="item.name" :class="['iconfont',item.class,active==index?'active':'']" tag="i"></router-link>
+      <router-link :to="item.path" v-for="(item,index) in navs" :key="item.name" :title="item.name" :class="['iconfont',item.class,active==index?'active':'']" tag="i"></router-link>
     </div>   
     <footer>
       <i class="iconfont icongengduo-2" title="更多"></i>
@@ -22,7 +22,7 @@ export default {
         {
           name:"通讯录",
           class:'iconweimingmingwenjianjia_tongxunlu',
-           path:'/chat1'
+           path:'/communication'
         },
         {
           name:"收藏",
@@ -56,7 +56,6 @@ export default {
   .avatar_img{
     width: 40px;
     height: 40px;
-    border-radius: 50%;
     margin-bottom: 20px;
   }
   .navs{

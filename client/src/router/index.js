@@ -25,6 +25,14 @@ const routes = [
         meta:{
           needLogin:true
         }
+      },
+      {
+        path: '/communication',
+        name: 'Communication', 
+        component: () => import( '../views/main/communication/index.vue'),
+        meta:{
+          needLogin:true
+        }
       }
     ]
   } 

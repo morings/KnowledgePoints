@@ -10,3 +10,14 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.star-avatar{
+  width: 40px;
+  height: 40px;
+}
+.star-side-main{
+  height: calc(100% - 57px);
+  width: 100%;
+}
+.star-text-center{
+  text-align: center;
+}
