@@ -3,18 +3,20 @@ var {mongoose} = require('../db'),
     Schema = mongoose.Schema;
 var UserSchema = new Schema({
     email : String,
-    userpsw : String,
+    nickname:String,
+    password : String,
     logindate : Date,
     avatar:String
 })
 UserSchema = mongoose.model('user',UserSchema);
 /*插入数据库函数*/
-function insert(email,psw,avatar){
+function insert(data){
     //数据格式
     var user =  new UserSchema({
-        email : email,
-        userpsw : psw,
-        avatar:avatar,
+        email : data.email,
+        password : data.password,
+        nickname:data.nickname,
+        avatar:data.avatar,
         userid:uuid.v1(),
         logindate : new Date()
     });

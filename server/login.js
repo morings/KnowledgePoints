@@ -11,12 +11,9 @@ const login = function(req,res){
   var md5 = crypto.createHash("md5");
   var newPas = md5.update(UserPsw).digest("hex");
   //通过账号密码搜索验证
-  var updatestr = {email: email,userpsw:newPas};
+  var updatestr = {email: email,password:newPas};
   //处理跨域的问题
     res.setHeader('Content-type','application/json;charset=utf-8')
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
-    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
     res.header("X-Powered-By",' 3.2.1')
     
     UserSchema.find(updatestr, function(err, obj){
@@ -38,9 +35,6 @@ const login = function(req,res){
 const register = function (req, res) {
   //处理跨域的问题
   res.setHeader('Content-type','application/json;charset=utf-8')
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
-  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
   res.header("X-Powered-By",' 3.2.1')
    //先查询有没有这个user
   var UserPsw = req.body.password;
@@ -49,7 +43,7 @@ const register = function (req, res) {
   console.log(req.body)
   //密码加密
   var md5 = crypto.createHash("md5");
-  var newPas = md5.update(UserPsw).digest("hex");
+  req.body.password = md5.update(UserPsw).digest("hex");
   //通过账号验证
   var updatestr = {email: Email};
     if(Email == ''){
@@ -63,7 +57,7 @@ const register = function (req, res) {
         else {
             if(obj.length == 0){
                 //如果查出无数据,就将账户密码插入数据库
-                insert(Email,newPas,avatar); 
+                insert(req.body); 
                 //返回数据到前端
                 res.send({success:true,message:"注册成功"}) 
             }else if(obj.length !=0){

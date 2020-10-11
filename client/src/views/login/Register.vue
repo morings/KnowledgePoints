@@ -16,6 +16,13 @@
             <el-input v-model="registerValidateForm.email"></el-input>
           </el-form-item>
           <el-form-item
+            prop="nickname"
+            label="昵称"
+            :rules="rules.nickname"
+          >
+            <el-input v-model="registerValidateForm.nickname"></el-input>
+          </el-form-item>
+          <el-form-item
           prop="password"
           label="密码"
           :rules = "rules.password"
@@ -63,7 +70,7 @@ export default {
                 email: '',
                 password: '',
                 checkPass: '',
-                first: 'first',
+                nickname:"",
                 avatar:''
             },
             rules: {
@@ -83,6 +90,12 @@ export default {
                         message: '请输入正确的邮箱地址',
                         trigger: 'blur'
                     }
+                ],
+                nickname: [{
+                        required: true,
+                        message: '请输入昵称',
+                        trigger: 'blur'
+                    }      
                 ],
                 password: [{
                         required: true,

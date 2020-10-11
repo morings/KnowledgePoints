@@ -8,8 +8,8 @@ const {upload} = require("./upload")
 const {getUserInfo} = require("./api.js")
 const app = express()
 app.use(favicon(path.join(__dirname,'./public/logo-48.png')))
-app.use('/public',express.static('./public'))
-app.use('/files',express.static('./upload'))
+app.use('/public',express.static(path.join(__dirname,'./public')))
+app.use('/files',express.static(path.join(__dirname,'./upload')))
 // create application/json parser
 var jsonParser = bodyParser.json()
 // create application/x-www-form-urlencoded parser
