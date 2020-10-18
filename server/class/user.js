@@ -1,5 +1,4 @@
 var {mongoose} = require('../db'),
- uuid = require('uuid'),
     Schema = mongoose.Schema;
 var UserSchema = new Schema({
     email : String,
@@ -17,7 +16,6 @@ function insert(data){
         password : data.password,
         nickname:data.nickname,
         avatar:data.avatar,
-        userid:uuid.v1(),
         logindate : new Date()
     });
     user.save(function(err,res){

@@ -1,7 +1,7 @@
 <template>
   <div class="communication star-flex1">
     <communication-side class="CommunicationSide"></communication-side>
-    <communication-window class="star-flex-item"></communication-window>
+    <router-view></router-view>
   </div>
 </template>
 <script>

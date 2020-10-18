@@ -1,6 +1,7 @@
 <template>
   <div class="CommunicationSide">
     <search-panel></search-panel>
+
     <friend-list class="FriendList star-side-main"> </friend-list>
   </div>
 </template>
@@ -17,7 +18,7 @@ export default {
 <style lang="scss" scoped>
 .CommunicationSide{
   width: 315px;
-  background-color: #f5f5f5;
+  background-color: #eeeeee;
   display: flex;
   flex-direction: column;
   border-right: 1px solid #DCDFE6;

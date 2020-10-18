@@ -85,7 +85,7 @@ export default {
                             type: 'success',
                             message: '登录成功'
                         })
-                        this.$setCookie('userid',data._id) 
+                        this.$setCookie('userid',data._id);
                         this.$router.push("/chat")     
                     })
                 } else {

@@ -32,7 +32,17 @@ const routes = [
         component: () => import( '../views/main/communication/index.vue'),
         meta:{
           needLogin:true
-        }
+        },
+        children:[
+          {
+            path:'/newFriends',
+            name: 'NewFriends', 
+            component: () => import( '../views/main/communication/NewFriends.vue'),
+            meta:{
+              needLogin:true
+            },
+          }
+        ]
       }
     ]
   } 

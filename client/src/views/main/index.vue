@@ -9,6 +9,9 @@ import MainNav from "./MainNav"
 export default {
   components:{
     MainNav
+  },
+  mounted(){
+    this.$store.commit('SET_USER_ID',this.$getCookie('userid'))
   }
 }
 </script>

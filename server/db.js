@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-
+console.log(mongoose)
 //数据库地址
 DB_URL = 'mongodb://localhost:27017/chat';
 

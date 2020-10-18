@@ -5,7 +5,7 @@ const favicon = require('serve-favicon')
 var bodyParser = require('body-parser')
 const {login,register} = require("./login")
 const {upload} = require("./upload")
-const {getUserInfo} = require("./api.js")
+const {getUserInfo,queryAccount,addFriend,queryFriendApply} = require("./api.js")
 const app = express()
 app.use(favicon(path.join(__dirname,'./public/logo-48.png')))
 app.use('/public',express.static(path.join(__dirname,'./public')))
@@ -18,4 +18,7 @@ app.post('/register',jsonParser,register);
 app.post('/login',jsonParser,login);
 app.post('/upload',upload);
 app.post('/getUserInfo',jsonParser,getUserInfo)
+app.post('/queryAccount',jsonParser,queryAccount)
+app.post('/addFriend',jsonParser,addFriend)
+app.post('/queryFriendApply',jsonParser,queryFriendApply)
 app.listen(3000, () => console.log(`服务已启动`))

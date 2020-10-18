@@ -4,7 +4,7 @@ const server = axios.create({
   headers: {
     'content-type': 'application/json'
   },
-  baseURL:'/api'
+  baseURL:process.env.NODE_ENV=='development'?'/api':''
 })
 // http response 拦截器
 server.interceptors.response.use(

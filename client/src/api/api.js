@@ -15,4 +15,13 @@ api.upload = function(data){
 api.getUserInfo =  function(data){
   return server.post("/getUserInfo",data);
 }
+api.queryAccount =  function(data){
+  return server.post("/queryAccount",data);
+}
+api.addFriend =  function(data){
+  return server.post("/addFriend",data);
+}
+api.queryFriendApply = function(data){
+  return server.post("/queryFriendApply",data);
+}
 export default api;

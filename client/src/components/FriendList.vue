@@ -1,5 +1,14 @@
 <template>
   <div class="FriendList">
+    <section class="block">
+      <div class="blockName">新的朋友</div>
+      <ul>
+        <router-link class="star-flex1 friend" tag='li' to="/newFriends">
+          <img src="../assets/img/newFriend.png" class="star-avatar">
+           <div class="friendName star-flex-item" style="margin-left:5px">新的朋友</div>
+        </router-link>
+      </ul>
+    </section>
     <section class="block" v-for="(block,index) in blocks" :key="index">
       <div class="blockName">{{block.name}}</div>
       <ul>
@@ -58,6 +67,7 @@ export default {
   }
   .friend{
     padding: 10px 15px;
+    cursor: pointer;
   }
   .blockName{
     padding: 0 15px;

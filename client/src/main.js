@@ -11,6 +11,7 @@ import api from "./api/api.js"
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
 import vuescroll from 'vuescroll';
+import store from "./store"
 // 你可以在这里设置全局配置
 Vue.use(vuescroll); // install the vuescroll first
 Vue.use(Viewer)
@@ -23,5 +24,6 @@ Vue.prototype.$api = api;
 const app = new Vue({
   // 注入 router 到根 Vue 实例
   router,
+  store,
   render: h => h(App)
 }).$mount("#app")
