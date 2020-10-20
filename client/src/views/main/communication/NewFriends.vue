@@ -2,14 +2,22 @@
   <div class="new_friends">
     <section class="header">新的朋友</section>
     <ul class="list">
-      <li class="apply" v-for="item in list" :key="item._id">
+      <li class="apply star-flex1" v-for="item in list" :key="item._id">
         <img :src="item.avatar" alt="">
-        <div>
+        <div class="star-flex-item" style="margin:0 5px">
           <div class="nickname">{{item.nickname}}</div>
-          <div class="nickname">{{item.desc}}</div>
+          <div class="desc">{{item.desc}}</div>
         </div>
-        <el-button type='success' v-if="!item.isAggre">接受</el-button>
-        <el-button type='text' disabled>接受</el-button>
+        <div class="apply_handle">
+          <template v-if="item.isAggre">
+            <span class="aggred">已同意</span>
+          </template>
+          <template v-else>
+            <el-button type='success' @click="aggre">接受</el-button>
+            <el-button type='danger' @click="refuse">拒绝</el-button>
+          </template>
+        </div>
+        
       </li>
     </ul>   
   </div>
@@ -17,8 +25,7 @@
 <script>
 export default {
   computed:{
-    userid(){
-      
+    userid(){     
       return this.$store.state.user.userid;
     }
   },
@@ -35,6 +42,12 @@ export default {
       this.$api.queryFriendApply({userid:this.userid}).then(res=>{
         this.list = res.list
       })
+    },
+    aggre(){
+
+    },
+    refuse(){
+
     }
   }
 }

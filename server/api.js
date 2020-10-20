@@ -48,10 +48,12 @@ const queryAccount = function(req,res){
 const addFriend = function(req,res){
   let userid = req.body.userid;
   let friendId = req.body.friendId;
+  let desc = req.body.desc;
   let fiendLink = new FriendSchema({
     userid,
     friendId,
-    isAggre:false
+    isAggre:false,
+    desc:desc
   })
   fiendLink.save(function(err){
     if(err){
@@ -72,6 +74,7 @@ const queryFriendApply = function(req,res){
     }
   })
 }
+
 module.exports = {
   getUserInfo,
   queryAccount,

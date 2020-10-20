@@ -3,7 +3,8 @@ var {mongoose} = require('../db'),
 var FriendSchema = new Schema({
     userid:String,
     friendId:String,
-    isAggre: Boolean     
+    isAggre: Boolean,
+    desc:String 
 })
 FriendSchema = mongoose.model('friend',FriendSchema);
 module.exports = {FriendSchema}

@@ -69,9 +69,16 @@ export default {
       })
     },
     addFriend(id){
-      this.$api.addFriend({userid:this.userid,friendId:id}).then(res=>{
-        this.$message({type:'success',message:'已发送好友申请'})
-        this.queryAccount()
+      this.$prompt('请输入申请备注', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        inputPattern: /\S/,
+        inputErrorMessage:'申请备注不能为空'
+      }).then(({ value }) => {
+        this.$api.addFriend({userid:this.userid,friendId:id,desc:value}).then(res=>{
+          this.$message({type:'success',message:'已发送好友申请'})
+          this.queryAccount()
+        })
       })
     }
   }
