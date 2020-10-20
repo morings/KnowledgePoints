@@ -49,20 +49,25 @@ const addFriend = function(req,res){
   let userid = req.body.userid;
   let friendId = req.body.friendId;
   let desc = req.body.desc;
-  let fiendLink = new FriendSchema({
-    userid,
-    friendId,
-    isAggre:false,
-    desc:desc
+  UserSchema.find({_id:userid},function(err,friend){
+    let fiendLink = new FriendSchema({
+      userid,
+      friendAvatar:friend[0].avatar,
+      friendName:friend[0].nickname,
+      friendId,
+      isAggre:false,
+      desc:desc
+    })
+    fiendLink.save(function(err){
+      if(err){
+        res.send({success:false,message:err})
+      }
+      else{
+        res.send({success:true,message:"已发送好友申请"})
+      }
+    })
   })
-  fiendLink.save(function(err){
-    if(err){
-      res.send({success:false,message:err})
-    }
-    else{
-      res.send({success:true,message:"已发送好友申请"})
-    }
-  })
+  
 }
 const queryFriendApply = function(req,res){
   let userid = req.body.userid;
@@ -70,14 +75,35 @@ const queryFriendApply = function(req,res){
     if(err){
       res.send({success:false,message:err})
     }else{
-      res.send({success:true,data:{list,message:'查询成功'}})
+      res.send({success:true,data:{list},message:'查询成功'})
     }
   })
 }
-
+const aggreFriendApply = function(req,res){
+  let id = req.body.applyId;
+  FriendSchema.findByIdAndUpdate(id,{$set:{isAggre:true}},function(err){
+    if(err){
+      res.send({success:false,message:err})
+    }else{
+      res.send({success:true,message:"操作成功"})
+    }
+  })
+}
+const refuseFriendApply = function(req,res){
+  let id = req.body.applyId;
+  FriendSchema.findByIdAndRemove(id,function(err){
+    if(err){
+      res.send({success:false,message:err})
+    }else{
+      res.send({success:true,message:"操作成功"})
+    }
+  })
+}
 module.exports = {
   getUserInfo,
   queryAccount,
   addFriend,
-  queryFriendApply
+  queryFriendApply,
+  aggreFriendApply,
+  refuseFriendApply
 }

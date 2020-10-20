@@ -3,9 +3,9 @@
     <section class="header">新的朋友</section>
     <ul class="list">
       <li class="apply star-flex1" v-for="item in list" :key="item._id">
-        <img :src="item.avatar" alt="">
-        <div class="star-flex-item" style="margin:0 5px">
-          <div class="nickname">{{item.nickname}}</div>
+        <img :src="item.friendAvatar" alt="" class="avatar_img">
+        <div class="star-flex-item" style="margin:0 20px">
+          <div class="nickname">{{item.friendName}}</div>
           <div class="desc">{{item.desc}}</div>
         </div>
         <div class="apply_handle">
@@ -13,8 +13,8 @@
             <span class="aggred">已同意</span>
           </template>
           <template v-else>
-            <el-button type='success' @click="aggre">接受</el-button>
-            <el-button type='danger' @click="refuse">拒绝</el-button>
+            <el-button type='success' @click="aggre(item._id)" size='small'>接受</el-button>
+            <el-button type='danger' @click="refuse(item._id)" size='small'>拒绝</el-button>
           </template>
         </div>
         
@@ -34,20 +34,32 @@ export default {
       list:[]
     }
   },
+  watch:{
+    userid(){
+      this.search()
+    }
+  },
   mounted(){
     this.search()
   },
   methods:{
     search(){
+      if(!this.userid)return false
       this.$api.queryFriendApply({userid:this.userid}).then(res=>{
         this.list = res.list
       })
     },
-    aggre(){
-
+    aggre(id){
+      this.$api.aggreFriendApply({applyId:id}).then(res=>{
+        this.search()
+        this.$message({type:'success',message:"操作成功"})
+      })
     },
-    refuse(){
-
+    refuse(id){
+      this.$api.refuseFriendApply({applyId:id}).then(res=>{
+        this.search()
+         this.$message({type:'success',message:"操作成功"})
+      })
     }
   }
 }
@@ -73,6 +85,13 @@ export default {
       border-bottom: 1px solid #e8e6e6;
       
     }
+  }
+  .avatar_img{
+    margin-bottom: 0;
+  }
+  .desc{
+    font-size: 12px;
+    margin-top: 20px;
   }
 }
 </style>

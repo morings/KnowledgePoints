@@ -24,4 +24,10 @@ api.addFriend =  function(data){
 api.queryFriendApply = function(data){
   return server.post("/queryFriendApply",data);
 }
+api.refuseFriendApply = function(data){
+  return server.post("/refuseFriendApply",data);
+}
+api.aggreFriendApply = function(data){
+  return server.post("/aggreFriendApply",data);
+}
 export default api;

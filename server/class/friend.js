@@ -4,7 +4,9 @@ var FriendSchema = new Schema({
     userid:String,
     friendId:String,
     isAggre: Boolean,
-    desc:String 
+    desc:String,
+    friendAvatar:String,
+    friendName:String
 })
 FriendSchema = mongoose.model('friend',FriendSchema);
 module.exports = {FriendSchema}
