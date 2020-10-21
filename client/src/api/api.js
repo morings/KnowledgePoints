@@ -30,4 +30,7 @@ api.refuseFriendApply = function(data){
 api.aggreFriendApply = function(data){
   return server.post("/aggreFriendApply",data);
 }
+api.queryFriend = function(data){
+  return server.post("/queryFriend",data);
+}
 export default api;

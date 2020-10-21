@@ -9,12 +9,12 @@
         </router-link>
       </ul>
     </section>
-    <section class="block" v-for="(block,index) in blocks" :key="index">
-      <div class="blockName">{{block.name}}</div>
+    <section class="block" >
+      <div class="blockName">好友列表</div>
       <ul>
-        <li v-for="item in block.friends" :key="item.name" class="star-flex1 friend">
-          <img :src="item.avatar" alt="" class="star-avatar">
-          <div class="friendName star-flex-item" style="margin-left:5px">{{item.name}}</div>
+        <li v-for="item in friends" :key="item.friendName" class="star-flex1 friend">
+          <img :src="item.friendAvatar" alt="" class="star-avatar">
+          <div class="friendName star-flex-item" style="margin-left:5px">{{item.friendName}}</div>
         </li>
       </ul>
     </section>
@@ -24,35 +24,20 @@
 export default {
   data(){
     return{
-      blocks:[
-        {
-          name:"A",
-          friends:[
-            {
-              name:"阿爸",
-              avatar:''
-            },
-            {
-              name:"阿妈",
-              avatar:''
-            }
-          ]
-        },
-        {
-          name:"B",
-          friends:[
-            {
-              name:"阿爸",
-              avatar:''
-            },
-            {
-              name:"阿妈",
-              avatar:''
-            }
-          ]
-        }
+      friends:[
+       
       ]
     }
+  },
+  computed:{
+    userid(){
+      return this.$store.state.user.userid
+    }
+  },
+  mounted(){
+    this.$api.queryFriend({userid:this.userid}).then(res=>{
+      this.friends = res.data.list;
+    })
   }
 }
 </script>

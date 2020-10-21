@@ -99,11 +99,22 @@ const refuseFriendApply = function(req,res){
     }
   })
 }
+const queryFriend = function(req,res){
+  let userid = req.body.userid;
+  FriendSchema.find({userid,isAggre:true},function(err,list){
+    if(err){
+      res.send({success:false,message:err})
+    }else{
+      res.send({success:true,data:{list},message:'查询成功'})
+    }
+  })
+}
 module.exports = {
   getUserInfo,
   queryAccount,
   addFriend,
   queryFriendApply,
   aggreFriendApply,
-  refuseFriendApply
+  refuseFriendApply,
+  queryFriend
 }
