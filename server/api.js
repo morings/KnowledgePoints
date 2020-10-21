@@ -71,7 +71,7 @@ const addFriend = function(req,res){
 }
 const queryFriendApply = function(req,res){
   let userid = req.body.userid;
-  FriendSchema.find({userid},function(err,list){
+  FriendSchema.find({friendId:userid},function(err,list){
     if(err){
       res.send({success:false,message:err})
     }else{

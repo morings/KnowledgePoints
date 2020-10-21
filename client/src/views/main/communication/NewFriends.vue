@@ -46,7 +46,7 @@ export default {
     search(){
       if(!this.userid)return false
       this.$api.queryFriendApply({userid:this.userid}).then(res=>{
-        this.list = res.list
+        this.list = res.data.list
       })
     },
     aggre(id){
