@@ -25,40 +25,19 @@
 <script>
 export default {
   computed:{
-    userid(){     
-      return this.$store.state.user.userid;
+    list(){
+      return this.$store.state.user.friendApply;
     }
-  },
-  data(){
-    return{
-      list:[]
-    }
-  },
-  watch:{
-    userid(){
-      this.search()
-    }
-  },
-  mounted(){
-    this.search()
   },
   methods:{
-    search(){
-      if(!this.userid)return false
-      this.$api.queryFriendApply({userid:this.userid}).then(res=>{
-        this.list = res.data.list
-      })
-    },
     aggre(id){
       this.$api.aggreFriendApply({applyId:id}).then(res=>{
-        this.search()
         this.$message({type:'success',message:"操作成功"})
       })
     },
     refuse(id){
-      this.$api.refuseFriendApply({applyId:id}).then(res=>{
-        this.search()
-         this.$message({type:'success',message:"操作成功"})
+      this.$api.refuseFriendApply({applyId:id}).then(res=>{   
+        this.$message({type:'success',message:"操作成功"})
       })
     }
   }

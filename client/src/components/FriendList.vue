@@ -22,22 +22,10 @@
 </template>
 <script>
 export default {
-  data(){
-    return{
-      friends:[
-       
-      ]
-    }
-  },
   computed:{
-    userid(){
-      return this.$store.state.user.userid
+    friends(){
+      return this.$store.state.user.friendList
     }
-  },
-  mounted(){
-    this.$api.queryFriend({userid:this.userid}).then(res=>{
-      this.friends = res.data.list;
-    })
   }
 }
 </script>

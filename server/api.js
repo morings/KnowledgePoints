@@ -1,5 +1,6 @@
 const {UserSchema} = require('./class/user.js')
-const {FriendSchema} = require('./class/friend.js')
+const {Friend} = require('./class/friend.js')
+const {FriendApply} = require('./class/friendApply.js')
 const getUserInfo = function(req,res){
   let userid = req.body.userid;
   UserSchema.find({_id:userid}, function(err, obj){
@@ -16,78 +17,85 @@ const getUserInfo = function(req,res){
     }
   })
 }
-const queryAccount = function(req,res){
+const queryAccount = async function(req,res){
   let userid = req.body.userid;
   let email = req.body.email;
   let reg = new RegExp(email,'i');
   let pageIndex = req.body.pageIndex;
   let pageSize = req.body.pageSize;
-  FriendSchema.find({userid},function(err,obj){
-    if (err) {
-      console.log("Error:" + err);
-      res.send({success:false,message:"查询失败"}) 
-    }
-    let friends = obj.map(item=>item.friendId);
-    UserSchema.find({email:{$regex : reg},_id:{$ne:userid}}).skip((pageIndex - 1) * pageSize).limit(pageSize||20).exec((err, doc) => {
-      let data = []
-      for(let item of doc){
-        item = item.toObject()
-        if(friends.includes(item._id.toString())){
-          item.hasApply = true;
-        }else{
-          item.hasApply = false;
-        }
-        data.push(item)
+  let friendsApply = await FriendApply.find({userid})
+  friendsApply = friendsApply.map(item=>item.friendId);  
+  UserSchema.find({email:{$regex : reg},_id:{$ne:userid}}).skip((pageIndex - 1) * pageSize).limit(pageSize||20).exec((err, doc) => {
+    let data = []
+    for(let item of doc){
+      item = item.toObject()
+      if(friendsApply.includes(item._id.toString())){
+        item.hasApply = true;
+      }else{
+        item.hasApply = false;
       }
-      UserSchema.find({email:{$regex : reg}}).then(result=>{
-        res.send({success:true,data:{list:data,total:result.length}})
-      })
+      data.push(item)
+    }
+    UserSchema.find({email:{$regex : reg}}).then(result=>{
+      res.send({success:true,data:{list:data,total:result.length}})
     })
   })
 }
-const addFriend = function(req,res){
+const addFriend = async function(req,res){
   let userid = req.body.userid;
   let friendId = req.body.friendId;
   let desc = req.body.desc;
-  UserSchema.find({_id:userid},function(err,friend){
-    let fiendLink = new FriendSchema({
-      userid,
-      friendAvatar:friend[0].avatar,
-      friendName:friend[0].nickname,
-      friendId,
-      isAggre:false,
-      desc:desc
-    })
-    fiendLink.save(function(err){
-      if(err){
-        res.send({success:false,message:err})
-      }
-      else{
-        res.send({success:true,message:"已发送好友申请"})
-      }
-    })
+  let friendsApply = await FriendApply.findOne({userid,friendId})
+  if(friendsApply.lenth){
+    return res.send({success:true,message:'已申请过了'})
+  }
+  let fiendApply = new FriendApply({
+    userid,
+    friendId,
+    isAggre:false,
+    desc:desc
   })
-  
+  fiendApply.save(function(err){
+    if(err){
+      res.send({success:false,message:err})
+    }
+    else{
+      res.send({success:true,message:"已发送好友申请"})
+    }
+  })
 }
-const queryFriendApply = function(req,res){
+const queryFriendApply = async function(req,res){
   let userid = req.body.userid;
-  FriendSchema.find({friendId:userid},function(err,list){
-    if(err){
-      res.send({success:false,message:err})
-    }else{
-      res.send({success:true,data:{list},message:'查询成功'})
-    }
-  })
+  let list = await FriendApply.find({friendId:userid})
+  let result = []
+  for(let i of list){
+    let friend = await UserSchema.findById(i.userid);
+    i = i.toObject()
+    i.friendName = friend.nickname
+    i.friendAvatar = friend.avatar
+    result.push(i)
+  }
+  res.send({data:{list:result},success:true})
 }
-const aggreFriendApply = function(req,res){
+const aggreFriendApply = async function(req,res){
   let id = req.body.applyId;
-  FriendSchema.findByIdAndUpdate(id,{$set:{isAggre:true}},function(err){
-    if(err){
-      res.send({success:false,message:err})
-    }else{
-      res.send({success:true,message:"操作成功"})
-    }
+  let apply = await Friend.findById(id)
+  if(!apply){
+    res.send({success:false,message:"好友请求不存在"})
+  }
+  await FriendApply.findByIdAndRemove(id)
+  let friendApply =await  FriendApply.findOne({_id:id});
+  let friend1 = new Friend({
+    userid:friendApply.userid,
+    friendId:friendApply.friendId,
   })
+  let friend2 = new Friend({
+    userid:friendApply.friendId,
+    friendId:friendApply.userid,
+  })
+  await friend1.save()
+  await friend2.save();
+  res.send({success:true,message:"操作成功"})
 }
 const refuseFriendApply = function(req,res){
   let id = req.body.applyId;
@@ -101,7 +109,7 @@ const refuseFriendApply = function(req,res){
 }
 const queryFriend = function(req,res){
   let userid = req.body.userid;
-  FriendSchema.find({userid,isAggre:true},function(err,list){
+  Friend.find({userid},function(err,list){
     if(err){
       res.send({success:false,message:err})
     }else{

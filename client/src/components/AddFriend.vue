@@ -25,7 +25,7 @@
         label="操作">
         <template slot-scope="scoped">
           <el-button type="text" v-if="!scoped.row.hasApply" @click="addFriend(scoped.row._id)">添加</el-button>
-          <el-button type="text" disabled v-else>已添加</el-button>
+          <el-button type="text" disabled v-else>已申请</el-button>
         </template>
       </el-table-column>
     </el-table>
