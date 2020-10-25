@@ -6,7 +6,6 @@ const getUserInfo = function(req,res){
   let userid = req.body.userid;
   User.find({_id:userid}, function(err, obj){
     if (err) {
-      console.log("Error:" + err);
       res.send({success:false,message:"查询失败"}) 
     }
     else {

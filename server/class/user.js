@@ -18,13 +18,6 @@ function insert(data){
         avatar:data.avatar,
         logindate : new Date()
     });
-    user.save(function(err,res){
-        if(err){
-            console.log(err);
-        }
-        else{
-            console.log(res);
-        }
-    })
+    user.save()
 }
 module.exports = {User,insert}

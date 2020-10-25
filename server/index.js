@@ -1,4 +1,5 @@
 // server.js
+require("./socket")
 const express = require('express')
 var path = require("path")
 const favicon = require('serve-favicon')
@@ -9,7 +10,7 @@ const {
   addReceive,
   getReceiveList,   
   getFriendInfo,queryFriend,getUserInfo,queryAccount,addFriend,queryFriendApply,refuseFriendApply,aggreFriendApply} = require("./api.js")
-const app = express(),
+const app = express();
 app.use(favicon(path.join(__dirname,'./public/logo-48.png')))
 app.use('/public',express.static(path.join(__dirname,'./public')))
 app.use('/files',express.static(path.join(__dirname,'./upload')))

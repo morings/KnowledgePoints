@@ -12,6 +12,7 @@ import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
 import vuescroll from 'vuescroll';
 import store from "./store"
+import ws  from "./socket"
 // 你可以在这里设置全局配置
 Vue.use(vuescroll); // install the vuescroll first
 Vue.use(Viewer)
