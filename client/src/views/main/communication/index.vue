@@ -6,11 +6,11 @@
 </template>
 <script>
 import CommunicationSide from "./CommunicationSide"
-import CommunicationWindow from "./CommunicationWindow"
+
 export default {
   components:{
     CommunicationSide,
-    CommunicationWindow
+
   }
 }
 </script>

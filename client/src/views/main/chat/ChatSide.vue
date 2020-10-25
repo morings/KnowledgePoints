@@ -16,124 +16,6 @@ export default {
     return{
       search:'',
       receiveList:[
-        {
-          name:"冯倩",
-          avatar:'',
-          desc:'',
-          time:'14：06'
-        },
-         {
-          name:"订阅号",
-          avatar:'',
-          desc:'前端大全，做了八年前端还是一事无成',
-          time:'昨天'
-        },
-        {
-          name:"冯倩",
-          avatar:'',
-          desc:'',
-          time:'14：06'
-        },
-         {
-          name:"订阅号",
-          avatar:'',
-          desc:'前端大全，做了八年前端还是一事无成',
-          time:'昨天'
-        },
-        {
-          name:"冯倩",
-          avatar:'',
-          desc:'',
-          time:'14：06'
-        },
-         {
-          name:"订阅号",
-          avatar:'',
-          desc:'前端大全，做了八年前端还是一事无成',
-          time:'昨天'
-        },
-        {
-          name:"冯倩",
-          avatar:'',
-          desc:'',
-          time:'14：06'
-        },
-         {
-          name:"订阅号",
-          avatar:'',
-          desc:'前端大全，做了八年前端还是一事无成',
-          time:'昨天'
-        },
-        {
-          name:"冯倩",
-          avatar:'',
-          desc:'',
-          time:'14：06'
-        },
-         {
-          name:"订阅号",
-          avatar:'',
-          desc:'前端大全，做了八年前端还是一事无成',
-          time:'昨天'
-        },
-        {
-          name:"冯倩",
-          avatar:'',
-          desc:'',
-          time:'14：06'
-        },
-         {
-          name:"订阅号",
-          avatar:'',
-          desc:'前端大全，做了八年前端还是一事无成',
-          time:'昨天'
-        },
-        {
-          name:"冯倩",
-          avatar:'',
-          desc:'',
-          time:'14：06'
-        },
-         {
-          name:"订阅号",
-          avatar:'',
-          desc:'前端大全，做了八年前端还是一事无成',
-          time:'昨天'
-        },{
-          name:"冯倩",
-          avatar:'',
-          desc:'',
-          time:'14：06'
-        },
-         {
-          name:"订阅号",
-          avatar:'',
-          desc:'前端大全，做了八年前端还是一事无成',
-          time:'昨天'
-        },
-        {
-          name:"冯倩",
-          avatar:'',
-          desc:'',
-          time:'14：06'
-        },
-         {
-          name:"订阅号",
-          avatar:'',
-          desc:'前端大全，做了八年前端还是一事无成',
-          time:'昨天'
-        },{
-          name:"冯倩",
-          avatar:'',
-          desc:'',
-          time:'14：06'
-        },
-         {
-          name:"订阅号",
-          avatar:'',
-          desc:'前端大全，做了八年前端还是一事无成',
-          time:'昨天'
-        }
       ],
       ops:{
         bar:{
@@ -145,6 +27,16 @@ export default {
   components:{
     SearchPanel,
     ReceiveItem
+  },
+  computed:{
+    userid(){
+      return this.$store.state.user.userid || this.$getCookie('userid')
+    }
+  },
+  mounted(){
+    this.$api.getReceiveList({userid:this.userid}).then(res=>{
+      this.receiveList = res;
+    })
   }
 }
 </script>

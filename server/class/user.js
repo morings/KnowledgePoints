@@ -2,19 +2,19 @@ var {mongoose} = require('../db'),
     Schema = mongoose.Schema;
 var UserSchema = new Schema({
     email : String,
-    nickname:String,
+    name:String,
     password : String,
     logindate : Date,
     avatar:String
 })
-UserSchema = mongoose.model('user',UserSchema);
+var User = mongoose.model('user',UserSchema);
 /*插入数据库函数*/
 function insert(data){
     //数据格式
-    var user =  new UserSchema({
+    var user =  new User({
         email : data.email,
         password : data.password,
-        nickname:data.nickname,
+        name:data.name,
         avatar:data.avatar,
         logindate : new Date()
     });
@@ -27,4 +27,4 @@ function insert(data){
         }
     })
 }
-module.exports = {UserSchema,insert}
+module.exports = {User,insert}

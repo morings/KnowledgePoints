@@ -2,30 +2,46 @@
   <div class="CommunicationWindow">
     <div class="friendInfo">
       <section class="base">
-        <div class="name">曲志龙</div>
-        <img src="" alt="" class="avatar">
-      </section>
-      <section class="detail">
-        <ul>
-          <li class="star-flex1">
-            <div class="label">姓名</div>
-            <div class="value star-flex-item">姓名</div>
-          </li>
-          <li class="star-flex1">
-            <div class="label">姓名</div>
-            <div class="value star-flex-item">姓名</div>
-          </li>
-        </ul>
+        <div class="name">{{info.name}}</div>
+        <img :src="info.avatar" alt="" class="avatar">
       </section>
       <footer class="star-text-center">
-        <el-button type='success'>发消息</el-button>
+        <el-button type='success' @click="addRecive">发消息</el-button>
       </footer>
     </div>
   </div>
 </template>
 <script>
 export default {
-  
+  data(){
+    return{
+      id:'',
+      info:{
+
+      }
+    }
+  },
+  computed:{
+    userid(){
+      return this.$store.state.user.userid
+    }
+  },
+  mounted(){
+    this.id = this.$route.params.id;
+    this.getFriendInfo()
+  },
+  methods:{
+    getFriendInfo(){
+      this.$api.getFriendInfo({id:this.id}).then(res=>{
+        this.info = res;
+      })
+    },
+    addRecive(){
+      this.$api.addReceive({userid:this.userid,friendId:this.id}).then(res=>{
+        this.$router.push(`/receive/${res.id}`)
+      });
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -33,6 +49,7 @@ export default {
   position: relative;
   height: 100%;
   background-color: #eeeeee;
+  flex: 1;
   .friendInfo{
     position: absolute;
     top: 50px;

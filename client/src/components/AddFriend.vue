@@ -17,7 +17,7 @@
       </el-table-column>
       <el-table-column
         align='center'
-        prop="nickname"
+        prop="name"
         label="昵称">
       </el-table-column>
       <el-table-column

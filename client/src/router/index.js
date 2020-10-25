@@ -24,7 +24,14 @@ const routes = [
         component: () => import( '../views/main/chat/Chat.vue'),
         meta:{
           needLogin:true
-        }
+        },
+        children:[
+          {
+            path:'/receive/:receiveId',
+            name:'Receive',
+            component:()=>import('../views/main/chat/ChatWindow.vue')
+          }
+        ]
       },
       {
         path: '/communication',
@@ -38,6 +45,14 @@ const routes = [
             path:'/newFriends',
             name: 'NewFriends', 
             component: () => import( '../views/main/communication/NewFriends.vue'),
+            meta:{
+              needLogin:true
+            },
+          },
+          {
+            path:'/friendInfo/:id',
+            name: 'FriendInfo', 
+            component: () => import( '../views/main/communication/FriendInfo.vue'),
             meta:{
               needLogin:true
             },

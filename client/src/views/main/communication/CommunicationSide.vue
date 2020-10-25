@@ -1,7 +1,6 @@
 <template>
   <div class="CommunicationSide">
     <search-panel></search-panel>
-
     <friend-list class="FriendList star-side-main"> </friend-list>
   </div>
 </template>

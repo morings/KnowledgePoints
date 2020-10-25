@@ -33,4 +33,13 @@ api.aggreFriendApply = function(data){
 api.queryFriend = function(data){
   return server.post("/queryFriend",data);
 }
+api.getFriendInfo = function(data){
+  return server.post("/getFriendInfo",data);
+}
+api.addReceive = function(data){
+  return server.post("/addReceive",data);
+}
+api.getReceiveList = function(data){
+  return server.post("/getReceiveList",data);
+}
 export default api;

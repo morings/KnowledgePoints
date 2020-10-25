@@ -12,10 +12,10 @@
     <section class="block" >
       <div class="blockName">好友列表</div>
       <ul>
-        <li v-for="item in friends" :key="item.friendName" class="star-flex1 friend">
-          <img :src="item.friendAvatar" alt="" class="star-avatar">
-          <div class="friendName star-flex-item" style="margin-left:5px">{{item.friendName}}</div>
-        </li>
+        <router-link v-for="item in friends" :key="item.id" class="star-flex1 friend" tag="li" :to="'/friendInfo/'+item.id">
+          <img :src="item.avatar" alt="" class="star-avatar">
+          <div class="friendName star-flex-item" style="margin-left:5px">{{item.name}}</div>
+        </router-link>
       </ul>
     </section>
   </div>
@@ -37,6 +37,12 @@ export default {
     &:last-child{
       border: none;
     }
+    .friend:hover{
+      background-color:#c0c0c0;
+    }
+    .friendName{
+      margin-left: 10px;
+    }
   }
   .friend{
     padding: 10px 15px;
@@ -44,6 +50,7 @@ export default {
   }
   .blockName{
     padding: 0 15px;
+    margin-bottom: 10px;
   }
 }
 </style>

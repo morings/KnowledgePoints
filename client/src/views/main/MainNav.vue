@@ -30,18 +30,15 @@ export default {
            path:'/chat2'
         }
       ],
-      avatar:''
     }
   },
   computed:{
     active(){
       return this.$router.path
+    },
+    avatar(){
+      return this.$store.state.user.userinfo.avatar
     }
-  },
-  mounted(){
-    this.$api.getUserInfo({userid:this.$getCookie("userid")}).then(res=>{
-      this.avatar = res.avatar
-    })
   }
 }
 </script>

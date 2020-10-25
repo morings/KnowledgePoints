@@ -5,7 +5,7 @@
       <li class="apply star-flex1" v-for="item in list" :key="item._id">
         <img :src="item.friendAvatar" alt="" class="avatar_img">
         <div class="star-flex-item" style="margin:0 20px">
-          <div class="nickname">{{item.friendName}}</div>
+          <div class="name">{{item.friendName}}</div>
           <div class="desc">{{item.desc}}</div>
         </div>
         <div class="apply_handle">
@@ -33,11 +33,13 @@ export default {
     aggre(id){
       this.$api.aggreFriendApply({applyId:id}).then(res=>{
         this.$message({type:'success',message:"操作成功"})
+        this.$store.dispatch('queryFriendApply')
       })
     },
     refuse(id){
       this.$api.refuseFriendApply({applyId:id}).then(res=>{   
         this.$message({type:'success',message:"操作成功"})
+        this.$store.dispatch('queryFriendApply')
       })
     }
   }

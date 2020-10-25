@@ -1,5 +1,5 @@
 <template>
-  <div class="ReceiveItem">
+  <div :class="['ReceiveItem',receiveId==item._id?'active':'']" @click="chat">
     <img :src="item.avatar" class="icon">
     <div class='info star-flex-item'>
       <div class="star-flex1">
@@ -12,7 +12,17 @@
 </template>
 <script>
 export default {
-  props:['item']
+  props:['item'],
+  computed:{
+    receiveId(){
+      return this.$route.params.receiveId;
+    }
+  },
+  methods:{
+    chat(){
+      this.$router.push(`/receive/${this.item._id}`)
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -20,8 +30,12 @@ export default {
   padding: 12px;
   width: 100%;
   display: flex;
+  cursor: pointer;
   &.active{
-    background-color: #e8e6e6;;
+    background-color:#c0c0c0;
+  }
+  &:hover{
+    background-color:#c0c0c0;  
   }
   .icon{
     width:38px;

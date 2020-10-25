@@ -1,5 +1,5 @@
 
-const {UserSchema,insert} = require('./class/user.js')
+const {User,insert} = require('./class/user.js')
 //加密模块
 var crypto = require("crypto");
 
@@ -16,7 +16,7 @@ const login = function(req,res){
     res.setHeader('Content-type','application/json;charset=utf-8')
     res.header("X-Powered-By",' 3.2.1')
     
-    UserSchema.find(updatestr, function(err, obj){
+    User.find(updatestr, function(err, obj){
         if (err) {
             console.log("Error:" + err);
         }
@@ -50,7 +50,7 @@ const register = function (req, res) {
        res.send({success:false}) ;
     }
     res.setHeader('Content-type','application/json;charset=utf-8')
-    UserSchema.find(updatestr, function(err, obj){
+    User.find(updatestr, function(err, obj){
         if (err) {
             console.log("Error:" + err);
         }

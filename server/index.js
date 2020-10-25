@@ -5,8 +5,11 @@ const favicon = require('serve-favicon')
 var bodyParser = require('body-parser')
 const {login,register} = require("./login")
 const {upload} = require("./upload")
-const {queryFriend,getUserInfo,queryAccount,addFriend,queryFriendApply,refuseFriendApply,aggreFriendApply} = require("./api.js")
-const app = express()
+const {
+  addReceive,
+  getReceiveList,   
+  getFriendInfo,queryFriend,getUserInfo,queryAccount,addFriend,queryFriendApply,refuseFriendApply,aggreFriendApply} = require("./api.js")
+const app = express(),
 app.use(favicon(path.join(__dirname,'./public/logo-48.png')))
 app.use('/public',express.static(path.join(__dirname,'./public')))
 app.use('/files',express.static(path.join(__dirname,'./upload')))
@@ -24,4 +27,7 @@ app.post('/queryFriendApply',jsonParser,queryFriendApply)
 app.post('/aggreFriendApply',jsonParser,aggreFriendApply)
 app.post('/refuseFriendApply',jsonParser,refuseFriendApply)
 app.post('/queryFriend',jsonParser,queryFriend)
+app.post('/getFriendInfo',jsonParser,getFriendInfo)
+app.post('/addReceive',jsonParser,addReceive)
+app.post('/getReceiveList',jsonParser,getReceiveList)
 app.listen(3000, () => console.log(`服务已启动`))

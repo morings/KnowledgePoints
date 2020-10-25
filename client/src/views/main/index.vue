@@ -11,7 +11,7 @@ export default {
     MainNav
   },
   mounted(){
-    this.$store.commit('SET_USER_ID',this.$getCookie('userid'))
+    this.$store.dispatch('getUserInfo',this.$getCookie('userid'))
   }
 }
 </script>

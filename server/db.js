@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 console.log(mongoose)
 //数据库地址
-DB_URL = 'mongodb://localhost:27017/chat';
+var DB_URL = 'mongodb://localhost:27017/chat';
 
 mongoose.connect(DB_URL);
 mongoose.connection.once('open', ()=>console.log('mongo connect success'));

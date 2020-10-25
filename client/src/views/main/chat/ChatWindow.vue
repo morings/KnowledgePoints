@@ -1,6 +1,6 @@
 <template>
   <div class="ChatWindow" ref='window'>
-    <div class="chatName">文件传输助手</div>
+    <div class="chatName"></div>
     <div class="messageList" ref="messageList">
       <vue-scroll></vue-scroll>
     </div>
@@ -21,26 +21,36 @@
 export default {
   data(){
     return{
-      move_s:null
+      move_s:null,
+      id:''
     }
   },
+  computed:{
+    
+  },
   mounted(){
-    console.log(this.$refs.sendPanel.offsetHeight)
-    this.$refs.move.addEventListener('mousedown',(e)=>{
-      this.move_s = e.clientY;
-    },false);
-    this.$refs.window.addEventListener('mousemove',(e)=>{
-      if(!this.move_s) return;
-      let dis = e.clientY - this.move_s;
-      let height = this.$refs.sendPanel.offsetHeight - dis ;
-      this.move_s = e.clientY;   
-      if(height<200 || height>400) return;
-      this.$refs.sendPanel.style.height = height+'px';
-      this.$refs.messageList.style.bottom = height+'px';   
-    },false);
-    document.body.addEventListener('mouseup',(e)=>{
-      this.move_s = null;
-    },false)
+    this.addEventListener()
+    this.id = this.$route.params.receiveId;
+  
+  },
+  methods:{
+    addEventListener(){
+      this.$refs.move.addEventListener('mousedown',(e)=>{
+        this.move_s = e.clientY;
+      },false);
+      this.$refs.window.addEventListener('mousemove',(e)=>{
+        if(!this.move_s) return;
+        let dis = e.clientY - this.move_s;
+        let height = this.$refs.sendPanel.offsetHeight - dis ;
+        this.move_s = e.clientY;   
+        if(height<200 || height>400) return;
+        this.$refs.sendPanel.style.height = height+'px';
+        this.$refs.messageList.style.bottom = height+'px';   
+      },false);
+      document.body.addEventListener('mouseup',(e)=>{
+        this.move_s = null;
+      },false)
+    }
   }
 }
 </script>
