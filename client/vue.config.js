@@ -20,5 +20,6 @@ module.exports = {
     //修改文件引入自定义路径
     config.resolve.alias
       .set('@components', resolve('src/components'))
+      .set('@src', resolve('src'))
   }
 }

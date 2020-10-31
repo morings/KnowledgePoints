@@ -18,11 +18,13 @@
   </div>
 </template>
 <script>
+import socket from "@src/socket.js"
 export default {
   data(){
     return{
       move_s:null,
-      id:''
+      id:'',
+      ws:null
     }
   },
   computed:{
@@ -31,7 +33,10 @@ export default {
   mounted(){
     this.addEventListener()
     this.id = this.$route.params.receiveId;
-  
+    socket().then(ws=>{
+      this.ws = ws;
+      console.log(ws)
+    })
   },
   methods:{
     addEventListener(){
