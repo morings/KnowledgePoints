@@ -1,12 +1,12 @@
 <template>
-<img :src="son" alt="">
+<img src="./son.png" alt="">
 </template>
 <script>
-import son from "./son.png"
+
 export default {
   data(){
     return{
-      son:son
+      
     }
   }
 }

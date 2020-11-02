@@ -5,8 +5,7 @@ module.exports = {
   entry:['./src/index.js'],
   output:{
     filename:'bundle.js',
-    path:path.resolve(__dirname,'./dist'),
-    publicPath:'./dist/'
+    path:path.resolve(__dirname,'./dist')
   },
   mode:"development",
   devServer:{
@@ -21,7 +20,14 @@ module.exports = {
       },
       {
         test:/\.(png|jpg|gif)$/,
-        use:['file-loader']
+        use:[{
+          loader:'file-loader',
+          options:{
+            esModule: false,
+            name:'[name]_[contenthash].[ext]',
+            outputPath:"imgs/"
+          }
+        }]
       },
       {
         test:/\.scss$/,

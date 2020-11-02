@@ -24,6 +24,7 @@ module.exports = {
         use:[{
           loader:'file-loader',
           options:{
+            esModule: false,
             name:'[name]_[contenthash].[ext]',
             outputPath:"imgs/"//会影响文件引入的路径，例如css中的图片就是MiniCssExtractPlugin的publicPath+这个outputPath
           }
