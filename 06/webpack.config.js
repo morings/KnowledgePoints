@@ -23,7 +23,6 @@ module.exports = {
           name:'vendor'
         },
         default: {
-          minChunks: 2,
           priority: -20,
           name:'common'
         }

@@ -1,3 +1,3 @@
 import  "./modules/add"
-import "./modules/subtract"
+import("./modules/subtract")
 console.log('bar.js','/n')
