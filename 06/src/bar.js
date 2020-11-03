@@ -1,2 +1,3 @@
-import React from "react"
-document.write('bar.js',React.version)
+import  "./modules/add"
+import "./modules/subtract"
+console.log('bar.js','/n')
