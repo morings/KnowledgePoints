@@ -8,7 +8,8 @@ module.exports = {
   },
   output:{
     path:path.resolve(__dirname,'./dist'),
-    publicPath:'./dist/'
+    publicPath:'./dist/',
+    chunkFilename: '[name].[hash:8].js',//动态import文件名
   },
   mode:'development',
   optimization:{//学习地址：https://www.cnblogs.com/kwzm/p/10314827.html
