@@ -1,7 +1,8 @@
-new zmComponents.Hello({
+let scroll = new zmComponents.scroll({
   data(){
     return{
-      msg:'Hello,qcx'
+      wrapClass:'pages',
+      viewClass:'page-content'
     }
   }
 }).$mount('#app')

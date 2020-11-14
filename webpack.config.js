@@ -6,9 +6,9 @@ module.exports = {
   entry:['./src/index.js'],
   output:{
     filename:'zm-components.js',
+    publicPath: './',
     path:path.resolve(__dirname,'./dist')
   },
-  mode:"production",
   devServer:{
     publicPath:'/dist/'
   },
@@ -20,15 +20,24 @@ module.exports = {
         use:['vue-loader']
       },
       {
-        test:/\.(png|jpg|gif)$/,
-        use:[{
-          loader:'file-loader',
-          options:{
-            esModule: false,
-            name:'[name]_[contenthash].[ext]',
-            outputPath:"imgs/"
-          }
-        }]
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 20000,
+          name: 'fonts/[name]-[hash].[ext]'
+        }
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 20000,
+          name: 'images/[name]-[hash].[ext]'
+        }
+      },
+      {
+        test:/\.css$/,
+        use:[MiniCssExtractPlugin.loader,'css-loader']
       },
       {
         test:/\.scss$/,
