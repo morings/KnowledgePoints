@@ -5,13 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="./dist/zm-components.css">
-  <link rel="stylesheet" type="text/css" href="./work.css">
+  <link rel="stylesheet" type="text/css" href="./zm.css">
 </head>
 <body>
   <div id="app">    
     <div class="page"></div>
     <div class="page"></div>  
   </div>
+  <h3>搜素框</h1>
+  <div class="zm-search-input">
+    <input type="text">
+    <button class="btn search_btn" type="button">搜索</button>
+  </div>
+  <h3>镂空按钮</h1>
+  <button class="btn zm-btn-pure" type="button">镂空按钮</button>
+  <h3>文字按钮</h1>
+  <button class="btn zm-btn-text" type="button">文字按钮</button>
+  <h3>规则区域</h3>
+  <div class="zm-rules">规则区域</div>
+  <h3>黑体样式</h3>
+  <div class="zm-text1">黑体样式</div>
+  <h3>警告样式</h3>
+  <div class="zm-text-danger">警告样式</div>
+  <h3>info样式</h3>
+  <div class="zm-text-info">info样式</div>
+  <h3>分割线</h3>
+  <div class="zm-division"></div>
+  <h3>背景色</h3>
+  <div class="zm-bg-white">背景色</div>
+  <h3>label标签</h3>
+  <label class="zm-label">
+    <span>名：</span>
+    <input type="text">
+  </label>
+  <h3>边框色</h3>
+  <div class="zm-border">边框色</div>
+  <h3>内容页</h3>
+  <div class="zm-content-page">内容页</div>
+  <h3>tab导航栏</h3>
+  <div class="zm-labels">
+    <div class="zm-tabs_item active">tab1</div>
+    <div class="zm-tabs_item">tab2</div>
+    <div class="zm-tabs_item">tab3</div>
+  </div>
+  <h3 style="clear: both;">多选组</h3>
+  <label  class="zm-checkbox-label">
+    <input type="checkbox" name="form_rule_arr" value="1" checked disabled>
+    <span class="zm-checkbox-label_text">新咨询时填写</span>
+  </label>
+  <label class="zm-checkbox-label">
+    <input type="checkbox" name="form_rule_arr" value="2">
+    <span class="zm-checkbox-label_text">填写后才可咨询</span>
+  </label>
+  <label  class="zm-checkbox-label">
+    <input type="checkbox" name="form_rule_arr" value="3">
+    <span class="zm-checkbox-label_text">填写后不再填写</span>
+  </label>
+  <h3 style="clear: both;">单选组</h3>
+  <label  class="zm-radio-label">
+    <input type="radio" name="form_rule_arr" value="1" checked disabled>
+    <span class="zm-radio-label_text">新咨询时填写</span>
+  </label>
+  <label class="zm-radio-label">
+    <input type="radio" name="form_rule_arr" value="2">
+    <span class="zm-radio-label_text">填写后才可咨询</span>
+  </label>
+  <label  class="zm-radio-label">
+    <input type="radio" name="form_rule_arr" value="3">
+    <span class="zm-radio-label_text">填写后不再填写</span>
+  </label>
+  <h3>必填</h1>
+  <div class="zm-required">必填</div>
+  <h3>title</h1>
+  <div class="zm-title">模块标题</div>
+  <h3>pre样式</h3>
+  <pre class="zm-pre">
+{
+  data:'qcx'
+}
+  </pre>
+  <h3>普通tip</h3>
+  <div class="zm-tip">普通tip</div>
+  <h3>主标题tip</h3>
+  <div class="zm-title-tip">主标题tip</div>
 </body>
 <script src="./dist/zm-components.js"></script>
 <script src="./work.js"></script>

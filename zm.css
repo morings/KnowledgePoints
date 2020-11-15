@@ -1,0 +1,381 @@
+/*
+ * @Description: zm样式
+ * @Autor: star
+ * @Date: 2020-08-20 15:01:20
+ * @LastEditTime: 2020-11-12 15:58:23
+ */
+
+
+/**
+ * @Description: 输入框样式
+ * @Autor: star
+ */
+/**搜索框样式**/
+.zm-search-input{
+  width: 331px;
+  height: 36px;
+  background-color: #ffffff;
+  position: relative;
+  display: flex;
+}
+.zm-search-input>input{
+  flex:1;
+  padding: 0 10px;
+  border: 1px solid rgba(230, 230, 230, 1);
+  border-radius: 2px;
+  height: 100%;
+  box-sizing: border-box;
+}
+.zm-search-input>input:focus{
+  outline: none;
+}
+.zm-search-input>.search_btn{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 60px;
+  justify-content: center;
+  border: 1px solid rgba(230, 230, 230, 1);
+  border-left: 0;
+  position: relative;
+  cursor: pointer;
+}
+/*按钮样式*/
+.btn{
+  cursor: pointer;
+ }
+ .btn:focus{
+   outline: none;
+ }
+/**搜索框样式结束**/
+
+/**
+ * @Description: 按钮样式
+ * @Autor: star
+ */
+ /*镂空按钮*/
+.btn.zm-btn-pure{
+  color: #7F8FEF;
+  border: 1px solid rgba(127, 143, 239, 1);
+  background-color: #fff;
+  
+}
+/*文字按钮*/
+.btn.zm-btn-text{
+  color: #7F8FEF;
+  background-color: transparent;
+  border: none;
+}
+/* 按钮样式结束*/
+/**
+ * @Description: 规则框样式
+ * @Autor: star
+ */
+.zm-rules{
+  color: #2779CF;
+  padding: 16px 22px;
+  border: 1px solid #2779CF;
+  background-color: #E2EDF9;
+  line-height: 20px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+/* 规则框样式结束*/
+/**
+ * @Description: 文字样式
+ * @Autor: star
+ */
+.zm-text1{
+  color:#333333;
+  font-size: 14px;
+  font-weight: normal;
+}
+.zm-text-danger{
+  color:red;
+  font-size: 14px;
+  font-weight: normal;
+}
+.zm-text-info{
+  color:#9A9A9A;
+  font-size: 14px;
+  font-weight: normal;
+}
+/* 文字样式结束*/
+/**
+ * @Description: 分割线样式
+ * @Autor: star
+ */
+.zm-division{
+  height:1px;
+  background:#E6E6E6;
+  width: 100%;
+  margin: 30px 0;
+}
+/* 分割线样式结束*/
+/**
+ * @Description: openid输入模板css
+ * @Autor: star
+ */
+.zm-openid-input .upload_type_tabs{
+  margin-bottom: 20px;
+}
+.zm-openid-input .upload_type_tab_item {
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  cursor: pointer;
+}
+.zm-openid-input .upload_type_tab_item.sel{
+  border-color: rgba(127, 143, 239, 1);
+  color: rgba(127, 143, 239, 1);
+}
+.zm-openid-input textarea{
+  width: 400px;
+  max-height: 400px;
+}
+/*  openid输入模板样式结束*/
+
+/* zm滚动条样式 */
+.zm-scroll{
+  position: relative;
+  overflow: hidden;
+}
+.zm-scroll-panel{
+  height: 100%;
+  margin-right: -17px;
+  overflow: hidden auto;
+}
+.zm-scroll-bar{
+  position: absolute;
+  z-index: 1;
+  transition: opacity 0.5s ease 0s;
+  border-radius: 6px;
+  background:rgba(137,140,151,0.1);
+  border: none;
+  width: 6px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  opacity: 0;
+}
+.zm-scroll-bar-line{
+  cursor: pointer;
+  position: absolute;
+  margin: auto;
+  user-select: none;
+  border-radius: inherit;
+  height: 50%;
+  background: #d4d4d4;
+  width: 6px;
+  left: 0px;
+  right: 0px;
+}
+/*隐藏panel开关*/
+.zm-toggle{
+  position: relative;
+  transition: width .5s; 
+}
+.zm-toggle-panel{
+  position: relative;
+  overflow-x: hidden;
+}
+.zm-toggle-btn{
+  position: absolute;
+  width: 9px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 99;
+  cursor: pointer;
+  display: none;
+  top:40%;
+  right: -10px;
+  background-image: url("../img/mainNav/show-panel-btn.png");
+}
+.zm-toggle-btn.show-panel{
+  display: block;
+  right: -11px;
+  background-image: url("../img/mainNav/show-panel-btn2.png");
+}
+.zm-toggle-btn.hide-panel{
+  display: block;
+  
+}
+/*背景色*/
+.zm-bg-white{
+  background-color: #fff;
+}
+/*label样式*/
+label.zm-label{
+  font-weight: normal;
+  display: inline-flex;
+  align-items: center;
+}
+label.zm-label input{
+  margin: 0 5px 0 0;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+/* vip表示样式*/
+.zm-vip1::after{
+  background-image: url("../img/vip1.png");
+  margin-left: 3px;
+  content: '';
+  display: inline-block;
+  width: 34px;
+  height: 14px;
+}
+.zm-vip2::after{
+  background-image: url("../img/vip1.png");
+  margin-left: 3px;
+  content: '';
+  display: inline-block;
+  width: 34px;
+  height: 14px;
+}
+.zm-vip3::after{
+  background-image: url("../img/vip3.png");
+  margin-left: 3px;
+  content: '';
+  display: inline-block;
+  width: 34px;
+  height: 14px;
+}
+
+/*边框线*/
+.zm-border{
+  border: 1px solid#f0f5fa;
+}
+/*分割线*/
+.zm-line {
+  width: 100%;
+  height: 1px;
+  background: #E8E8E8;
+  margin: 20px 0;
+}
+/*内容页样式*/
+.zm-content-page{
+  background-color: #fff;
+  padding: 36px;
+}
+/*tab导航栏*/
+.zm-tabs{
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #E6E6E6;
+}
+.zm-tabs::after{
+  clear: both;
+}
+.zm-tabs_item{
+  float: left;
+  display: block;
+  height: 35px;
+  color: #333333;
+  margin-left: 40px;
+  position: relative;
+}
+.zm-tabs_item:first-child{
+  margin-left: 0;;
+}
+.zm-tabs_item.active{
+  background: #fff;
+  color: #7f8fef;
+  border-bottom: 2px solid #7F8FEF;
+}
+/*表单样式*/
+@media (min-width: 768px){
+  .zm-form.form-horizontal .control-label{
+      padding-top: 7px;
+      text-align: left;
+      font-weight: normal;
+  }
+  .zm-form.form-horizontal .form-group{
+    overflow: hidden;
+  }
+}
+.zm-form label{
+  font-weight: normal;
+}
+/*多选组label样式*/
+.zm-checkbox-label,.zm-radio-label{
+  margin-left: 25px;
+}
+.zm-checkbox-label:first-child,.zm-radio-label:first-child{
+  margin-left: 0;
+}
+.zm-checkbox-label .zm-checkbox-label_text,.zm-radio-label .zm-radio-label_text{
+  position: relative;
+  top: -2px;
+  font-size: 14px;
+}
+/*溢出隐藏*/
+.zm-text-overfow{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.zm-required::after{
+  content: '*';
+  color:red;
+  font-size: 14px;
+}
+.zm-new{
+  position: relative;
+
+}
+.zm-new::after{
+  content:'';
+  position: absolute;
+  top: 3px;
+  right: -22px;
+  background-image: url("../img/mainNav/new.png");
+  width: 28px;
+  height: 16px;
+}
+.zm-border-none{
+  border: none;
+}
+.zm-title{
+  font-size: 18px;
+  color:#333333;
+  padding-left: 10px;
+  position: relative;
+}
+.zm-title::before{
+  width: 4px;
+  height: 19px;
+  background: rgba(127,143,239,1);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+pre.zm-pre{/*zm-pre标签样式*/
+  overflow: auto;
+  background: #F8F9FB;
+}
+.zm-tip{/*zm-tip*/
+  padding: 10px 0;
+  color: #999;
+  font-size: 14px;
+  font-weight:normal
+}
+.zm-title-tip{/*main_title后的tip*/
+  margin-left: 20px;
+  font-size: 12px;
+  font-weight:normal
+}
