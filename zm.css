@@ -211,13 +211,13 @@ label.zm-label{
 }
 label.zm-label input{
   margin: 0 5px 0 0;
+}
+.zm-input{
   display: block;
   width: 100%;
   box-sizing: border-box;
-  height: 34px;
   padding: 6px 12px;
   font-size: 14px;
-  line-height: 1.42857143;
   color: #333;
   background-color: #fff;
   background-image: none;
