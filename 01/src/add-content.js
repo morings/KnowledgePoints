@@ -1,3 +1,4 @@
-export default function(){
-  document.write('Hello World!')
+export var a = 123;
+export var add = ()=>{
+  a++
 }

@@ -1,4 +1,5 @@
 
-import addContent from "./add-content"
-document.write('My first Webpack app <br/>')
-addContent()
+import {a,add} from "./add-content"
+console.log(a)
+add()
+console.log(a)
