@@ -6,7 +6,8 @@ module.exports = {
   entry:['./src/index.js'],
   output:{
     filename:'bundle.js',
-    path:path.resolve(__dirname,'./dist')
+    path:path.resolve(__dirname,'./dist'),
+    publicPath:'./'
   },
   mode:"development",
   devServer:{
@@ -14,7 +15,7 @@ module.exports = {
   },
   module:{
     rules:[
-      { "test":/\.m?js$/, use: {loader:"babel-loader", options:{presets:["@babel/preset-env"]}}, exclude:/node_modules|bower_components/},
+     
       {
         test:/\.vue$/,
         use:['vue-loader']
@@ -26,10 +27,11 @@ module.exports = {
           options:{
             esModule: false,
             name:'[name]_[contenthash].[ext]',
-            outputPath:"imgs/"
+            outputPath:"imgs/",
+            publicPath: 'imgs/'
           }
         }]
-      },
+      }, 
       {
         test:/\.scss$/,
         use:['style-loader','css-loader','sass-loader']
