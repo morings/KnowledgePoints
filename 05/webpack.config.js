@@ -42,7 +42,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename:'css/[name].css',
-      chunkFilename:'css/[id].css'
+      chunkFilename:'css/[id].css'//异步加载的chunk
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'index.html'),

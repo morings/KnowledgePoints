@@ -11,3 +11,8 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+#app{
+  color:red
+}
+</style>

@@ -1,5 +1,6 @@
 
 import  "./main.scss"
+import "./app.scss"
 import App from "./app.vue"
 import Vue from "vue"
 new Vue({
