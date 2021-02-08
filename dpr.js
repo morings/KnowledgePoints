@@ -20,7 +20,7 @@ fontEl.innerHTML='html{font-size:'+rem+'px!important;}';
 //给js调用，某一dpr下rem和px之间的转换函数
 window.rem2px=function(v){
   v=parseFloat(v);
-  return v/rem;
+  return v*rem;
 }
 window.px2rem=function(v){
   v=parseFloat(v)
