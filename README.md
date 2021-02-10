@@ -1,5 +1,5 @@
-# responsetype和响应头contentype的优先级
-## responsetype>contenttype
+# response-type和响应头content-type的优先级
+## response-type>content-type
 <article id="wikiArticle">
   <p><strong>XMLHttpRequest.responseType&nbsp;</strong>属性是一个枚举类型的属性，返回响应数据的类型。它允许我们手动的设置返回数据的类型。如果我们将它设置为一个空字符串，它将使用默认的"text"类型。</p>
   <p>在工作环境(Work Environment)中将responseType的值设置为"document"通常会被忽略. 当将responseType设置为一个特定的类型时，你需要确保服务器所返回的类型和你所设置的返回值类型是兼容的。那么如果两者类型不兼容呢?恭喜你，你会发现服务器返回的数据变成了null，即使服务器返回了数据。还有一个要注意的是，给一个同步请求设置responseType会抛出一个<code>InvalidAccessError</code>&nbsp;的异常。</p>
