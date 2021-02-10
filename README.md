@@ -1,4 +1,4 @@
-# responsetype和响应头contenttype的优先级
+# responsetype和响应头contentype的优先级
 ## responsetype>contenttype
 <article id="wikiArticle">
   <p><strong>XMLHttpRequest.responseType&nbsp;</strong>属性是一个枚举类型的属性，返回响应数据的类型。它允许我们手动的设置返回数据的类型。如果我们将它设置为一个空字符串，它将使用默认的"text"类型。</p>
