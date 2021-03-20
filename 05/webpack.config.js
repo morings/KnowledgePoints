@@ -27,7 +27,7 @@ module.exports = {
           options:{
             esModule: false,
             name:'[name]_[contenthash].[ext]',
-            outputPath:"imgs/"//会影响文件引入的路径，例如css中的图片就是MiniCssExtractPlugin的publicPath+这个outputPath
+            outputPath:"imgs/"//会影响文件引入的路径(覆盖output中的publicPath)，例如css中的图片就是MiniCssExtractPlugin的publicPath+这个outputPath
           }
         }]
       },
