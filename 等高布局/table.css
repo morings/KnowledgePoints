@@ -1,0 +1,24 @@
+/*table布局实现*/
+body{
+  background-color: #eee;
+  margin: 0;
+  padding: 0;
+}
+.container{
+  display: table;
+  border-spacing: 1.5em 0 ;
+}
+.main{
+  width:70%;
+  background-color: #ffff;
+  border-radius: .5em;
+  padding: 20px;
+  display: table-cell;
+}
+.sider{
+  width:30%;
+  background-color: #ffff;
+  border-radius: .5em;
+  padding: 20px;
+  display: table-cell;
+}
