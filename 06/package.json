@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "build2": "webpack --config webpack.config2.js",
     "dev": "webpack-dev-server"
   },
   "author": "",

@@ -1,3 +1,4 @@
-import Vue from 'vue'
-console.log('add.js','/n')
-console.log(Vue)
+export default function add (a, b) {
+  console.log("add")
+  return a + b
+}

@@ -1,4 +1,4 @@
-import Vue from 'vue'
-console.log('subtract.js','/n')
-console.log(Vue)
-
+export default function subtract (a, b) {
+  console.log("subtract")
+  return a - b
+}
