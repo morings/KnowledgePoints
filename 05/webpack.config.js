@@ -8,11 +8,12 @@ module.exports = {
   output:{
     filename:'bundle.js',
     path:path.resolve(__dirname,'./dist'),
-    publicPath:'./dist/'
+    publicPath:'./'
   },
   mode:"development",
   devServer:{
-    publicPath:'/dist/'
+    publicPath:'/',
+    hot: true
   },
   module:{
     rules:[
@@ -45,7 +46,7 @@ module.exports = {
       chunkFilename:'css/[id].css'//异步加载的chunk
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'index.html'),
+      template: "./index.html"
     })
   ]
 }
