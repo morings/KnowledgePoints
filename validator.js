@@ -19,8 +19,9 @@ const strategies = {
   }
 }
 class Validator{
-  constructor(){
-    this.cache = []
+  constructor(data){
+    this.cache = [];
+    this.data = data || {};
   }
   add(value,rules) {
     rules = Array.isArray(rules)?rules:[rules];
@@ -39,6 +40,15 @@ class Validator{
         })
       })(rule)   
     }
+  }
+  addKey(key,rules){
+    var keys = key.split(".");
+    var data = this.data;
+    for(let k of keys){
+      if(!data.hasOwnProperty(k))return false;
+      data = data[k]
+    };
+    add(data,rules);
   }
   start(calback){
     let msg = [];
