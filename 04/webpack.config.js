@@ -1,7 +1,7 @@
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
+const path = require('path')  
 module.exports = {
   entry:['./src/index.js'],
   output:{
@@ -11,7 +11,7 @@ module.exports = {
   },
   mode:"development",
   devServer:{
-    publicPath:'/dist/'
+    publicPath:'/'
   },
   module:{
     rules:[
